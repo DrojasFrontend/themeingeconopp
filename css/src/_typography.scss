@@ -1,0 +1,90 @@
+:root {
+    --font-family: "Urbanist", serif;
+}
+
+body {
+    font-family: var(--font-family) !important;
+    font-weight: 400 !important;
+}
+
+.fs-1 {
+    font-size: 3rem !important;
+    /* 48px */
+}
+
+.fs-1-big {
+    font-size: 3rem !important;
+    /* 64px */
+}
+
+.fs-1-big-2 {
+    font-size: 8rem !important;
+    line-height: 5rem !important;
+    /* 128px */
+}
+
+.fs-2 {
+    font-size: 2.5rem !important;
+    /* 40px */
+}
+
+.fs-3 {
+    font-size: 2.25rem !important;
+    /* 36px */
+}
+
+.fs-4 {
+    font-size: 2rem !important;
+    /* 32px */
+}
+
+.fs-5 {
+    font-size: 1.5rem !important;
+    /* 24px */
+}
+
+.parrafo {
+    font-size: 1.25rem !important;
+    /* 20px */
+}
+
+.parrafo-small {
+    font-size: 0.875rem !important;
+    /* 14px */
+}
+
+@media only screen and (min-width: 992px) {
+    .fs-1 {
+        font-size: 3rem !important;
+        /* 48px */
+    }
+
+    .fs-1-big {
+        font-size: 4rem !important;
+        /* 64px */
+    }
+
+    .fs-1-big-2 {
+        font-size: 8rem !important;
+        line-height: 5rem !important;
+        /* 128px */
+    }
+}
+
+.fw {
+    &-light {
+        font-weight: 300 !important;
+    }
+
+    &-normal {
+        font-weight: 400 !important;
+    }
+
+    &-regular {
+        font-weight: 500 !important;
+    }
+}
+
+strong {
+    font-weight: 600 !important;
+}

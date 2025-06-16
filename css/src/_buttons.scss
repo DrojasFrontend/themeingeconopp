@@ -1,0 +1,48 @@
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 44px;
+    padding: 6px 15px;
+    font-size: 20px;
+    border-radius: 0;
+    border-radius: 40px;
+    
+    &-primary {
+        font-weight: 600;
+        color: var(--bs-primary);
+        background-color: var(--bs-secondary);
+        border-color: var(--bs-secondary);
+
+        &:hover {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            filter: brightness(90%);
+        }
+    }
+
+    &-blanco {
+        font-weight: 400;
+        color: var(--bs-primary);
+        background-color: var(--bs-white);
+        border-color: var(--bs-white);
+
+        &:hover {
+            background-color: var(--bs-white);
+        }
+    }
+
+    &-gris {
+        font-size: 15px;
+        height: 31px;
+        font-weight: 400;
+        color: var(--bs-white);
+        background-color: var(--bs-gray-300);
+        border-color: var(--bs-gray-300);
+
+        &:hover {
+            background-color: var(--bs-gray-300);
+        }
+    }
+    
+}

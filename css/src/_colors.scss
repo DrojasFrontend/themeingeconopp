@@ -1,0 +1,132 @@
+:root {
+    --bs-primary: #000000;
+    --bs-primary-100: #252524;
+    --bs-primary-200: #323231;
+    --bs-secondary: #F3BD0C;
+    --bs-secondary-100: #B1AA9D;
+    --bs-gray-100: #3F3D39;
+    --bs-gray-200: #252422;
+    --bs-gray-300: #6D6C6A;
+    --bs-gray-400: #2A2A29;
+    --bs-gray-500: #757575;
+    --bs-white-100: #FFFEF9;
+    
+    --bs-primary-rgb: 0, 0, 0;
+    --bs-gray-100-rgb: 63, 61, 57;
+    --bs-secondary-rgb: 243, 189, 12;
+    --bs-gray-200-rgb: 37, 36, 34;
+    --bs-white-100-rgb: 255, 254, 249;
+}
+
+// Clases de texto
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.text-primary-100 {
+    color: var(--bs-primary-100) !important;
+}
+
+.text-primary-200 {
+    color: var(--bs-primary-200) !important;
+}
+
+.text-gray-100 {
+    color: var(--bs-gray-100) !important;
+}
+
+.text-secondary-100 {
+    color: var(--bs-secondary-100) !important;
+}
+
+.text-secondary {
+    color: var(--bs-secondary) !important;
+}
+
+.text-gray-200 {
+    color: var(--bs-gray-200) !important;
+}
+
+.text-gray-300 {
+    color: var(--bs-gray-300) !important;
+}
+
+.text-white-100 {
+    color: var(--bs-white-100) !important;
+}
+
+.text-gray-400 {
+    color: var(--bs-gray-400) !important;
+}
+
+.text-gray-500 {
+    color: var(--bs-gray-500) !important;
+}
+
+// Clases de fondo
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.bg-primary-100 {
+    background-color: var(--bs-primary-100) !important;
+}
+
+.bg-primary-200 {
+    background-color: var(--bs-primary-200) !important;
+}
+
+.bg-secondary {
+    background-color: var(--bs-secondary) !important;
+}
+
+.bg-gray-100 {
+    background-color: var(--bs-gray-100) !important;
+}
+
+.bg-gray-200 {
+    background-color: var(--bs-gray-200) !important;
+}
+
+.bg-secondary-100 {
+    background-color: var(--bs-secondary-100) !important;
+}
+
+.bg-gray-300 {
+    background-color: var(--bs-gray-300) !important;
+}
+
+.bg-white-100 {
+    background-color: var(--bs-white-100) !important;
+}
+
+.bg-gray-400 {
+    background-color: var(--bs-gray-400) !important;
+}
+
+.bg-gray-500 {
+    background-color: var(--bs-gray-500) !important;
+}
+
+/* 
+// Botones
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    
+    &:hover {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+        filter: brightness(90%);
+    }
+}
+*/
+
+// Bordes
+.border-secondary-100 {
+    border-color: var(--bs-secondary-100) !important;
+} 
+
+.border-gray-200 {
+    border-color: var(--bs-gray-200) !important;
+}
