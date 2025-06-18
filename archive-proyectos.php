@@ -1,14 +1,14 @@
 <?php
 /**
- * Template para mostrar el archivo de servicios con tabs por etiquetas
+ * Template para mostrar el archivo de proyectos con tabs por etiquetas
  */
 
 get_header(); ?>
 
 <main id="primary" class="site-main">
     <section class="customSeccionBannerImagen position-relative">
-        <img class="d-none d-lg-block img-fluid" src="<?php echo THEME_IMG; ?>/hero-servicios.webp" alt="Hero servicios" title="Hero servicios">
-        <img class="d-lg-none img-fluid" src="<?php echo THEME_IMG; ?>/hero-servicios-mobile.webp" alt="Hero servicios" title="Hero servicios">
+        <img class="d-none d-lg-block img-fluid" src="<?php echo THEME_IMG; ?>/hero-proyectos.webp" alt="Hero proyectos" title="Hero proyectos">
+        <img class="d-lg-none img-fluid" src="<?php echo THEME_IMG; ?>/hero-proyectos-mobile.webp" alt="Hero proyectos" title="Hero proyectos">
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-lg-center align-items-end py-5">
             <div class="container">
                 <header>
@@ -24,7 +24,7 @@ get_header(); ?>
           <?php for ($i = 0; $i < 5; $i++) { ?>
           <div class="swiper-slide">
             <div class="d-flex align-items-center">
-              <h2 class="d-none d-lg-block fs-1"> <strong>Diseñamos, gestionamos y ejecutamos soluciones</strong> constructivas a la medida de cada proyecto. </h2>
+              <h2 class="d-none d-lg-block fs-1"> Cada proyecto, una historia construida con <strong>calidad</strong>, técnica y confianza.</h2>
               <h2 class="d-lg-none fs-4"> <strong>Diseñamos, gestionamos y ejecutamos soluciones</strong> constructivas a la medida de cada proyecto. </h2>
             </div>
             </div>
@@ -33,20 +33,20 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="customSeccionArchiveServicios pt-lg-7 pt-4">
+    <section class="customSeccionArchiveProyectos pt-lg-7 pt-4">
         <div class="container px-lg-3 px-0">
             <?php
-            // Obtener todos los términos de la taxonomía 'servicios'
+            // Obtener todos los términos de la taxonomía 'proyectos'
             $terms = get_terms(array(
-                'taxonomy' => 'servicios',
+                'taxonomy' => 'proyectos',
                 'hide_empty' => true,
             ));
             ?>
             <!-- Nav tabs -->
-            <ul class="d-flex justify-content-between gap-3 border-bottom border-secondary-100 pb-3 whitespace-nowrap overflow-x-auto" id="serviciosTabs" role="tablist">
+            <ul class="row gx-0 gap-3 border-bottom border-secondary-100 pb-3" id="serviciosTabs" role="tablist">
                 <?php foreach ($terms as $index => $term) : ?>
-                    <li class="list-style-none" role="presentation">
-                        <button class="position-relative border-0 p-0 parrafo text-secondary-100 <?php echo $index === 0 ? 'nav-link active' : ''; ?>" id="tab-<?php echo $term->slug; ?>" data-bs-toggle="tab" data-bs-target="#<?php echo $term->slug; ?>" type="button" role="tab" aria-controls="<?php echo $term->slug; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"><?php echo $term->name; ?></button>
+                    <li class="col d-flex justify-content-center list-style-none" role="presentation">
+                        <button class="position-relative w-100 border-0 p-0 parrafo text-secondary-100 <?php echo $index === 0 ? 'nav-link active' : ''; ?>" id="tab-<?php echo $term->slug; ?>" data-bs-toggle="tab" data-bs-target="#<?php echo $term->slug; ?>" type="button" role="tab" aria-controls="<?php echo $term->slug; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"><?php echo $term->name; ?></button>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -59,10 +59,10 @@ get_header(); ?>
                     <div class="tab-pane fade <?php echo $index === 0 ? 'show active' : ''; ?>" id="<?php echo $term->slug; ?>" role="tabpanel" aria-labelledby="tab-<?php echo $term->slug; ?>">
                         <?php
                         $servicios_query = new WP_Query(array(
-                            'post_type' => 'servicios',
+                            'post_type' => 'proyectos',
                             'tax_query' => array(
                                 array(
-                                    'taxonomy' => 'servicios',
+                                    'taxonomy' => 'proyectos',
                                     'field'    => 'slug',
                                     'terms'    => $term->slug,
                                 ),
@@ -70,38 +70,32 @@ get_header(); ?>
                         ));
                         ?>
                         <?php if ($servicios_query->have_posts()) : ?>
-                            <div class="servicios-grid">
+                            <div class="proyectos-grid">
                                 <?php while ($servicios_query->have_posts()) : $servicios_query->the_post(); ?>
-                                    <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveServicios__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100'); ?>>
+                                    <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveProyectos__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100'); ?>>
                                         <div class="d-flex flex-column d-lg-none justify-content-between">
-                                            <div class="d-flex align-items-center justify-content-between gap-2">
-                                                <a href="" class="btn btn-gris">
-                                                    Descargar
-                                                </a>
+                                            <p class="parrafo-small fw-semibold">Colombia</p>
+                                            <h2 class="fs-4 fw-regular">
+                                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                            </h2>
+                                            <p class="parrafo fw-normal">Construcción</p>
+                                            <div class="d-flex align-items-center justify-content-end gap-2">
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
                                                     <span class="sr-only">Leer más</span>
                                                     <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                                 </a>
                                             </div>
-                                            <h2 class="fs-4 fw-regular">
-                                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                            </h2>
-                                            
                                         </div>
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <div class="d-flex justify-content-center">
-                                                <?php the_post_thumbnail('large', array('class' => 'd-lg-block img-fluid')); ?>
-                                            </div>
-                                        <?php endif; ?>
                                         <div class="d-flex flex-column justify-content-between gap-3">
                                             <div class="d-none d-lg-flex justify-content-between">
-                                                <h2 class="fs-4 fw-regular">
-                                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                                </h2>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <a href="" class="btn btn-gris">
-                                                        Descargar
-                                                    </a>
+                                                <div class="d-flex flex-column gap-2">
+                                                    <p class="parrafo-small fw-semibold">Colombia</p>
+                                                    <h2 class="fs-4 fw-regular">
+                                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                                    </h2>
+                                                    <p class="parrafo fw-normal">Construcción</p>
+                                                </div>
+                                                <div class="d-flex align-items-start gap-2">
                                                     <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
                                                         <span class="sr-only">Leer más</span>
                                                         <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
@@ -111,13 +105,17 @@ get_header(); ?>
                                             <div class="fs-5">
                                                 <?php the_excerpt(); ?>
                                             </div>
-                                            
                                         </div>
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <div class="d-flex justify-content-center">
+                                                <?php the_post_thumbnail('large', array('class' => 'd-lg-block img-fluid')); ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </article>
                                 <?php endwhile; ?>
                             </div>
                         <?php else : ?>
-                            <p>No se encontraron servicios en esta categoría.</p>
+                            <p>No se encontraron proyectos en esta categoría.</p>
                         <?php endif; ?>
                         <?php wp_reset_postdata(); ?>
                     </div>
