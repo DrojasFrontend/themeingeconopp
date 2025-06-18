@@ -17,7 +17,7 @@ get_header();
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-6">
-          <h1 class="fs-1-big fw-semibold letter-spacing-4 mb-2">¿Quieres cotizar tu proyecto?</h1>
+          <h1 class="fs-1-medium fw-semibold letter-spacing-4 mb-2">¿Quieres cotizar tu proyecto?</h1>
           <p class="fs-1 text-secondary-100 mb-4">
             ¡Hablemos!
           </p>

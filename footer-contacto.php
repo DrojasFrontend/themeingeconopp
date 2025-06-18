@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="col-12 col-lg-10 mx-auto">
-              <h2 class="fs-1-big text-white fw-semibold mb-lg-0 mb-2">Contáctanos</h2>
+              <h2 class="fs-1-medium text-white fw-semibold mb-lg-0 mb-2">Contáctanos</h2>
               <p class="fs-5 text-white mb-lg-0 mb-5">
                 Nos mueve el compromiso, la calidad humana  y la excelencia en cada detalle
               </p>

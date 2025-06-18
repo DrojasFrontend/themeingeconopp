@@ -12,7 +12,7 @@ get_header(); ?>
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-lg-center align-items-end py-5">
             <div class="container">
                 <header>
-                    <h1 class="fs-1-big text-white fw-semibold"><?php post_type_archive_title(); ?></h1>
+                    <h1 class="fs-1-medium text-white fw-semibold"><?php post_type_archive_title(); ?></h1>
                 </header>
             </div>
         </div>

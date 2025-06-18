@@ -842,6 +842,7 @@ button.swiper-pagination-bullet {
   --bs-gray-400: #2A2A29;
   --bs-gray-500: #757575;
   --bs-white-100: #FFFEF9;
+  --bs-white-200: #F4F3ED;
   --bs-primary-rgb: 0, 0, 0;
   --bs-gray-100-rgb: 63, 61, 57;
   --bs-secondary-rgb: 243, 189, 12;
@@ -883,6 +884,10 @@ button.swiper-pagination-bullet {
 
 .text-white-100 {
   color: var(--bs-white-100) !important;
+}
+
+.text-white-200 {
+  color: var(--bs-white-200) !important;
 }
 
 .text-gray-400 {
@@ -929,6 +934,10 @@ button.swiper-pagination-bullet {
   background-color: var(--bs-white-100) !important;
 }
 
+.bg-white-200 {
+  background-color: var(--bs-white-200) !important;
+}
+
 .bg-gray-400 {
   background-color: var(--bs-gray-400) !important;
 }
@@ -972,12 +981,17 @@ body {
   /* 48px */
 }
 
-.fs-1-big {
+.fs-1-medium {
   font-size: 3rem !important;
   /* 64px */
 }
 
-.fs-1-big-2 {
+.fs-1-big {
+  font-size: 3rem !important;
+  /* 96px */
+}
+
+.fs-1-large {
   font-size: 8rem !important;
   line-height: 5rem !important;
   /* 128px */
@@ -1018,11 +1032,15 @@ body {
     font-size: 3rem !important;
     /* 48px */
   }
-  .fs-1-big {
+  .fs-1-medium {
     font-size: 4rem !important;
     /* 64px */
   }
-  .fs-1-big-2 {
+  .fs-1-big {
+    font-size: 6rem !important;
+    /* 96px */
+  }
+  .fs-1-large {
     font-size: 8rem !important;
     line-height: 5rem !important;
     /* 128px */
@@ -3735,6 +3753,12 @@ strong {
     font-size: 1.5rem;
   }
 }
+.customSeccionTarjetaNumero__single .customSeccionTarjetaNumero__item {
+  min-height: 390px;
+}
+.customSeccionTarjetaNumero__single .customSeccionTarjetaNumero__numero {
+  right: 50px;
+}
 
 /* List disc */
 li {
@@ -3812,7 +3836,7 @@ li::marker {
 label:has(input[type=checkbox]:checked) span {
   display: block;
   background: #F3BD0C;
-  color: #252422;
+  color: var(--bs-gray-200);
   padding: 10px 12px 10px 40px;
 }
 

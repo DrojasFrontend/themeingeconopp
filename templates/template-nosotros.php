@@ -17,7 +17,7 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-7">
-                <h1 class="fs-1-big fw-semibold letter-spacing-4 mb-2">Construimos confianza. Desarrollamos futuro.</h2>
+                <h1 class="fs-1-medium fw-semibold letter-spacing-4 mb-2">Construimos confianza. Desarrollamos futuro.</h2>
             </div>
             <div class="col-12 col-lg-5 px-lg-0">
                 <div class="d-flex flex-lg-column h-100 justify-content-lg-end">
@@ -69,7 +69,7 @@ get_header();
         <div class="row d-flex flex-lg-row flex-column-reverse">
             <div class="col-12 col-lg px-0">
                 <div class="bg-secondary d-flex flex-column justify-content-end pt-5 px-lg-4 px-3 pb-4 h-100">
-                    <h2 class="fs-1-big fw-semibold mb-3">Construimos con propósito</h2>
+                    <h2 class="fs-1-medium fw-semibold mb-3">Construimos con propósito</h2>
                     <p class="fs-5">
                         Un sistema innovador que utiliza estructuras en steel framing y un diseño arquitectónico inspirado en el Estilo Victoriano para crear viviendas sismo resistentes, de bajo costo, y con mínimo impacto ambiental.
                     </p>
@@ -87,7 +87,7 @@ get_header();
         <div class="row d-flex flex-lg-row-reverse flex-column-reverse">
             <div class="col px-0">
                 <div class="bg-secondary d-flex flex-column justify-content-end pt-5 px-lg-4 px-3 pb-4 h-100">
-                    <h2 class="fs-1-big fw-semibold mb-3">¿Qué nos motiva?</h2>                    
+                    <h2 class="fs-1-medium fw-semibold mb-3">¿Qué nos motiva?</h2>                    
                     <p class="fs-5">
                         En cada proyecto, nos mueve una convicción profunda: construir con propósito. Nos inspira la innovación como motor de avance, y trabajamos con enfoque en la eficiencia, optimizando procesos para reducir tiempos y costos sin comprometer la calidad.
                     </p>
@@ -107,7 +107,7 @@ get_header();
                 <div class="col-12 col-lg-8 px-0">
                     <div class="d-flex flex-column justify-content-center p-lg-5 px-4 py-5 h-100">
                         <p class="fs-4 text-secondary-100 letter-spacing-4">Ricardo A. Escobar</p>
-                        <h2 class="fs-1-big fw-semibold text-white letter-spacing-4 mb-2">Liderazgo con experiencia</h2>
+                        <h2 class="fs-1-medium fw-semibold text-white letter-spacing-4 mb-2">Liderazgo con experiencia</h2>
                         <div class="fs-5 text-white">
                             Liderando con más de 15 años de experiencia en construcción en Colombia y Centroamérica.
 
@@ -131,7 +131,7 @@ get_header();
         <div class="row d-flex flex-lg-row flex-column-reverse">
             <div class="col-12 col-lg px-0">
                 <div class="bg-secondary d-flex flex-column justify-content-end pt-5 px-lg-4 px-3 pb-4 h-100">
-                    <h2 class="fs-1-big fw-semibold mb-3 pe-5">Barranquilla, Colombia</h2>
+                    <h2 class="fs-1-medium fw-semibold mb-3 pe-5">Barranquilla, Colombia</h2>
                     <div class="fs-5">
                         <a href="tel:+573133312459" target="_blank" title="Llamar a Panamá">+57 313 331 2459</a>
                         <p>Centro Empresarial World Trade Center, Oficina 403</p>
@@ -151,7 +151,7 @@ get_header();
         <div class="row d-flex flex-lg-row-reverse flex-column-reverse">
             <div class="col px-0">
                 <div class="bg-secondary d-flex flex-column justify-content-end pt-5 px-lg-4 px-3 pb-4 h-100">
-                    <h2 class="fs-1-big fw-semibold mb-3">Panamá</h2>                    
+                    <h2 class="fs-1-medium fw-semibold mb-3">Panamá</h2>                    
                     <div class="fs-5">
                         <a href="tel:+50764252401" target="_blank" title="Llamar a Panamá">+507 6425 2401</a>
                         <p>Edificio Plaza 2000, Piso 11.</p>

@@ -12,12 +12,17 @@ body {
     /* 48px */
 }
 
-.fs-1-big {
+.fs-1-medium {
     font-size: 3rem !important;
     /* 64px */
 }
 
-.fs-1-big-2 {
+.fs-1-big {
+    font-size: 3rem !important;
+    /* 96px */
+}
+
+.fs-1-large {
     font-size: 8rem !important;
     line-height: 5rem !important;
     /* 128px */
@@ -59,12 +64,17 @@ body {
         /* 48px */
     }
 
-    .fs-1-big {
+    .fs-1-medium {
         font-size: 4rem !important;
         /* 64px */
     }
 
-    .fs-1-big-2 {
+    .fs-1-big {
+        font-size: 6rem !important;
+        /* 96px */
+    }
+
+    .fs-1-large {
         font-size: 8rem !important;
         line-height: 5rem !important;
         /* 128px */

@@ -37,19 +37,19 @@ get_header();
                 <div class="swiper-slide">
                   <div class="text-center text-lg-start">
                     <p class="fs-5 text-white">Proyectos completados</p>
-                    <span class="fs-1-big text-white fw-semibold">+18</span>
+                    <span class="fs-1-medium text-white fw-semibold">+18</span>
                   </div>
                 </div>
                 <div class="swiper-slide">
                   <div class="text-center text-lg-start">
                     <p class="fs-5 text-white">Clientes felices</p>
-                    <span class="fs-1-big text-white fw-semibold">+20</span>
+                    <span class="fs-1-medium text-white fw-semibold">+20</span>
                   </div>
                 </div>
                 <div class="swiper-slide">
                   <div class="text-center text-lg-start">
                     <p class="fs-5 text-white">Años de experiencia</p>
-                    <span class="fs-1-big text-white fw-semibold">+20</span>
+                    <span class="fs-1-medium text-white fw-semibold">+20</span>
                   </div>
                 </div>
               </div>
