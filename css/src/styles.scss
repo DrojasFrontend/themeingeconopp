@@ -330,6 +330,26 @@ main {
 			top: 0;
 			background-color: var(--bs-white-100);
 		}
+
+		.current-menu-item {
+			position: relative;
+			a {
+				color: var(--bs-gray-200) !important;
+				font-weight: 700;
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: -10px;
+				width: 8px;
+				height: 8px;
+				left: 50%;
+				transform: translateX(-50%);
+				background-color: var(--bs-secondary);
+			}
+		}
 	}
 }
 

@@ -2,13 +2,17 @@
 /* 
 *   Habilitación de menu
 */
-function menus()
+function setup_theme_menus()
 {
+    // Habilitar soporte para menús
+    add_theme_support('menus');
+    
+    // Registrar ubicaciones de menú
     register_nav_menus(array(
-        'menu-principal' => 'Menu Principal',
+        'menu-principal' => __('Menú Principal', 'themeingeconopp'),
     ));
 }
-add_action('init', 'menus');
+add_action('after_setup_theme', 'setup_theme_menus');
 
 /* 
 *   Logo
