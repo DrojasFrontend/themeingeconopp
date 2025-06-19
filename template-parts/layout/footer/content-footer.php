@@ -1,58 +1,73 @@
+<?php
+$grupo_contacto       = get_field('grupo_contacto', 'options');
+$items                = $grupo_contacto['items'] ?? '';
+
+$grupo_redes_sociales = get_field('grupo_redes_sociales', 'options');
+$items_redes_sociales = $grupo_redes_sociales['items'] ?? '';
+$cta_correo           = $grupo_redes_sociales['cta_correo'] ?? '';
+?>
 <footer class="pt-5 pb-3">
     <div class="px-3">
         <div class="bg-white rounded-4">
             <div class="container">
                 <div class="row d-flex flex-lg-row flex-column-reverse">
-                    <div class="col-12 col-lg-7 py-lg-5 py-4">
+                    <div class="col-12 col-lg-7 pt-lg-5 pb-lg-3 py-4">
                         <div class="row">
-                            <div class="col-12 col-lg-4 mb-lg-0 mb-4">
-                                <img class="rounded-circle" src="<?php echo THEME_IMG; ?>panama.png" alt="Logo Panamá">
-                                <h3 class="fs-5 fw-regular">Panamá</h3>
-                                <a href="tel:50764252401" target="_blank" title="Teléfono Panamá">+507 6425 2401</a>
-                                <p class="">Edificio Plaza 2000, Piso 11.</p>
-                                <p>Calle 53 Marbella</p>
-                            </div>
-                            <div class="col-12 col-lg-8">
-                                <img class="rounded-circle" src="<?php echo THEME_IMG; ?>colombia.png" alt="Logo Colombia">
-                                <h3 class="fs-5 fw-regular">Colombia</h3>
-                                <a href="tel:573133312459" target="_blank" title="Teléfono Colombia">+57 313 331 2459</a>
-                                <p class="">Centro Empresarial World Trade Center, Oficina 403</p>
-                                <p> Calle 76 No 54-11</p>
-                            </div>
+                            <!-- Banderas -->
+                            <?php if ($items) { ?>
+                                <?php foreach ($items as $index => $item) { 
+                                    $par_class = ($index % 2 == 1) ? ' col-12 col-lg-8' : 'col-12 col-lg-4 mb-4';
+                                    $imagen    = $item['imagen']['ID'] ?? '';
+                                    $texto     = $item['texto'] ?? '';
+                                ?>
+                                    <div class="<?php echo esc_attr($par_class); ?>">
+                                        <?php if ($imagen) { ?>
+                                            <?php echo generar_image_responsive($imagen, 'custom-size', 'rounded-circle mb-3', ''); ?>
+                                        <?php } ?>
+                                        <div class="d-grid gap-1">
+                                            <?php if ($texto) { ?>
+                                                <?php echo wp_kses_post($texto); ?>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="col-12 col-lg-5 px-lg-3 px-0">
                         <div class="d-flex flex-column justify-content-center customFooterRedes px-3 pt-lg-0 pt-5 pb-lg-0 pb-3 h-100">
-                            <div>
-                                <h2 class="fs-4 fw-semibold">¿Tienes dudas?, hablemos</h2>
-                                <a class="fs-5" href="mailto:rescobar@ingeconopp.com">rescobar@ingeconopp.com</a>
-                            </div>
+							<?php if ($cta_correo) { ?>
+                                <div class="d-flex flex-column gap-2">
+                                    <h2 class="fs-4 fw-semibold"><?php echo esc_html($cta_correo['title']); ?></h2>
+									<?php if ($cta_correo && !empty($cta_correo['url'])) { ?>
+										<a href="<?php echo esc_url($cta_correo['url']); ?>" 
+										class="d-block fs-5" 
+										target="<?php echo esc_attr($cta_correo['target'] ?? '_self'); ?>" 
+										title="<?php echo esc_attr($cta_correo['title'] ?? ''); ?>">
+										   <?php echo esc_html($cta_correo['url']); ?>
+										</a>
+									<?php } ?>
+                                </div>
+							<?php } ?>
                             <div>
                                 <ul class="d-flex justify-content-lg-end gap-3 mt-lg-5 mt-3">
-                                    <li class="list-style-none">
-                                        <a href="#" target="_blank" title="Facebook">
-                                            <span class="sr-only">Facebook</span>
-                                            <img src="<?php echo THEME_IMG; ?>/iconos/icono-facebook.svg" alt="Facebook" title="Facebook">
-                                        </a>
-                                    </li>
-                                    <li class="list-style-none">
-                                        <a href="#" target="_blank" title="Instagram">
-                                            <span class="sr-only">Instagram</span>
-                                            <img src="<?php echo THEME_IMG; ?>/iconos/icono-instagram.svg" alt="instagram" title="instagram">
-                                        </a>
-                                    </li>
-                                    <li class="list-style-none">
-                                        <a href="#" target="_blank" title="Linkedin">
-                                            <span class="sr-only">Linkedin</span>
-                                            <img src="<?php echo THEME_IMG; ?>/iconos/icono-linkedin.svg" alt="Linkedin" title="Linkedin">
-                                        </a>
-                                    </li>
-                                    <li class="list-style-none">
-                                        <a href="#" target="_blank" title="Whatsapp">
-                                            <span class="sr-only">Whatsapp</span>
-                                            <img src="<?php echo THEME_IMG; ?>/iconos/icono-whatsapp.svg" alt="Whatsapp" title="Whatsapp">
-                                        </a>
-                                    </li>
+                                    <?php if ($items_redes_sociales) { ?>
+                                        <?php foreach ($items_redes_sociales as $item) { 
+											$cta = $item['cta'];
+										?>
+                                            <li class="list-style-none">
+                                                <?php if ($cta && !empty($cta['url'])) { ?>
+                                                    <a href="<?php echo esc_url($cta['url']); ?>" 
+                                                    class="d-block" 
+                                                    target="<?php echo esc_attr($cta['target'] ?? '_self'); ?>" 
+                                                    title="<?php echo esc_attr($cta['title'] ?? ''); ?>">
+                                                    <span class="sr-only"><?php echo esc_html($cta['title'] ?? ''); ?></span>
+                                                    <img width="32" height="32" src="<?php echo esc_url($item['icono']); ?>" alt="<?php echo esc_attr($cta['title'] ?? ''); ?>" title="<?php echo esc_attr($cta['title'] ?? ''); ?>">
+                                                    </a>
+                                                <?php } ?>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>

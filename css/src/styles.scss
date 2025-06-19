@@ -313,6 +313,14 @@ main {
 		}
 	}
 
+	&Top {
+		p {
+			strong {
+				font-weight: 500 !important;
+			}
+		}
+	}
+
 	&Bottom {
 		top: 67px;
 		z-index: 2;
@@ -533,6 +541,10 @@ li {
 		@media only screen and (min-width: 992px) {
 			font-size: 1.25rem !important;
 		}
+	}
+
+	ul {
+		padding: 20px 0 0 40px;
 	}
 }
 

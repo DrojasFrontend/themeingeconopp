@@ -1,4 +1,11 @@
 <?php 
+$grupo_footer   = get_field('grupo_footer');
+$titulo_footer  = $grupo_footer['titulo'] ?? '';
+$texto_footer   = $grupo_footer['texto'] ?? '';
+$cta_correo     = $grupo_footer['cta_correo'] ?? '';
+
+$grupo_contacto = get_field('grupo_contacto', 'options');
+$items          = $grupo_contacto['items'] ?? '';
 ?>
 
   <footer class="bg-gray-200 py-5">
@@ -7,34 +14,51 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="col-12 col-lg-10 mx-auto">
-              <h2 class="fs-1-medium text-white fw-semibold mb-lg-0 mb-2">Contáctanos</h2>
-              <p class="fs-5 text-white mb-lg-0 mb-5">
-                Nos mueve el compromiso, la calidad humana  y la excelencia en cada detalle
-              </p>
+              <?php if ($titulo_footer) { ?>
+                <h2 class="fs-1-medium text-white fw-semibold mb-lg-0 mb-2"><?php echo esc_html($titulo_footer); ?></h2>
+              <?php } ?>
+              <?php if ($texto_footer) { ?>
+                <p class="fs-5 text-white mb-lg-0 mb-5">
+                  <?php echo wp_kses_post($texto_footer); ?>
+                </p>
+              <?php } ?>
             </div>
           </div>
           <div class="col-12 col-lg-6">
             <div class="mb-5">
-              <h3 href="" class="fs-5 text-secondary-100">Información general</h3>
-              <a href="" class="fs-5 text-white-100" target="_blank" title="Correo electrónico">rescobar@ingeconopp.com</a>
+              <?php if ($cta_correo) { ?>
+                <h3 href="" class="fs-5 text-secondary-100"><?php echo esc_html($cta_correo['title']); ?></h3>
+              <?php } ?>
+                <a href="<?php echo esc_url($cta_correo['url']); ?>" class="fs-5 text-white-100" target="<?php echo esc_attr($cta_correo['target']); ?>" title="Correo electrónico">
+                  <?php 
+                  // Eliminar "mailto:" si existe para mostrar solo el email
+                  $display_email = str_replace('mailto:', '', $cta_correo['url']);
+                  echo esc_html($display_email); 
+                  ?>
+                </a>
             </div>
             <div>
             <h3 class="fs-5 text-secondary-100 mb-2">Visitanos</h3>
             <div class="row">
-              <div class="col-12 col-lg-4 mb-lg-0 mb-4">
-                <img class="rounded-circle mb-3" src="<?php echo THEME_IMG; ?>panama.png" alt="Logo Panamá">
-                <h3 class="fs-5 fw-regular text-white-100">Panamá</h3>
-                <a class="parrafo-small text-white-100" href="tel:50764252401" target="_blank" title="Teléfono Panamá">+507 6425 2401</a>
-                <p class="parrafo-small text-white-100">Edificio Plaza 2000, Piso 11.</p>
-                <p class="parrafo-small text-white-100">Calle 53 Marbella</p>
-              </div>
-              <div class="col-12 col-lg-8">
-                <img class="rounded-circle mb-3" src="<?php echo THEME_IMG; ?>colombia.png" alt="Logo Colombia">
-                <h3 class="fs-5 fw-regular text-white-100">Colombia</h3>
-                <a class="parrafo-small text-white-100" href="tel:573133312459" target="_blank" title="Teléfono Colombia">+57 313 331 2459</a>
-                <p class="parrafo-small text-white-100">Centro Empresarial World Trade Center, Oficina 403</p>
-                <p class="parrafo-small text-white-100">Calle 76 No 54-11</p>
-              </div>
+              <!-- Banderas -->
+              <?php if ($items) { ?>
+                <?php foreach ($items as $index => $item) { 
+                  $par_class = ($index % 2 == 1) ? ' col-12 col-lg-8' : 'col-12 col-lg-4 mb-4';
+                  $imagen    = $item['imagen']['ID'] ?? '';
+                  $texto     = $item['texto'] ?? '';
+                ?>
+                  <div class="<?php echo esc_attr($par_class); ?>">
+                    <?php if ($imagen) { ?>
+                      <?php echo generar_image_responsive($imagen, 'custom-size', 'rounded-circle mb-3', ''); ?>
+                    <?php } ?>
+                    <div class="d-grid gap-1 text-white-100">
+                      <?php if ($texto) { ?>
+                        <?php echo wp_kses_post($texto); ?>
+                      <?php } ?>
+                    </div>
+                  </div>
+                <?php } ?>
+              <?php } ?>
             </div>
           </div>
         </div>

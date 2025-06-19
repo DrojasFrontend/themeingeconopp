@@ -23,8 +23,33 @@ get_header('single');
                                     <h1 class="fs-1-big text-white fw-semibold text-white-200"><?php the_title(); ?></h1>
                                 </div>
                                 <div class="d-flex flex-column justify-content-between align-items-end h-100 gap-2">
-                                    <a href="" class="btn btn-gris">Descargar brochure</a>
-                                    <a href="" class="btn btn-blaco px-0 mt-lg-0 mt-2 text-white-200 d-flex align-items-center gap-2">
+                                    <?php 
+                                    $post_id        = get_the_ID();
+                                    $grupo_descarga = get_field('grupo_descarga', $post_id);
+                                    $cta             = $grupo_descarga['cta'] ?? '';
+
+                                    $grupo_imagen   = get_field('grupo_imagen', $post_id);
+                                    $imagen_grande  = $grupo_imagen['imagen'] ?? '';
+                                    if ($imagen_grande) {
+                                        $imagen_grande = $imagen_grande['ID'];
+                                    }
+
+                                    $grupo_items    = get_field('grupo_items', $post_id);
+                                    $items          = $grupo_items['items'] ?? '';
+                                    if ($items) {
+                                        foreach ($items as $item) {
+                                            $titulo  = $item['titulo'] ?? '';
+                                            $detalle = $item['detalle'] ?? '';
+                                        }
+                                    }
+
+                                    ?>
+                                    <?php if ($cta) { ?>
+                                        <a href="<?php echo $cta['url']; ?>" class="btn btn-gris" target="<?php echo $cta['target']; ?>" title="<?php echo $cta['title']; ?>">
+                                        Descargar brochure
+                                        </a>
+                                    <?php } ?>
+                                    <a href="/contactanos/" class="btn btn-blaco px-0 mt-lg-0 mt-2 text-white-200 d-flex align-items-center gap-2">
                                         Cotiza tu proyecto
                                         <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                     </a>
@@ -32,29 +57,26 @@ get_header('single');
                             </div>
                         </div>
                         <div class="my-4">
-                            <img src="<?php echo THEME_IMG; ?>/post-llaves-en-mano.webp" alt="<?php the_title(); ?>" class="img-fluid rounded-4 overflow-hidden">
+                            <?php if ($imagen_grande) { ?>
+                                <?php echo generar_image_responsive($imagen_grande, 'custom-size', 'img-fluid rounded-4 overflow-hidden', ''); ?>
+                            <?php } ?>
                         </div>
                     </header>
                     
                     <div class="postContent fs-5 text-white-200 mb-4">
-                        Este enfoque permite que el cliente delegue completamente el desarrollo de la obra, confiando en un equipo que garantiza cumplimiento, calidad y eficiencia en cada etapa. Al entregar proyectos listos para operar, facilitamos la toma de decisiones y liberamos a nuestros clientes de la carga operativa y técnica del proceso constructivo.
+                        <?php the_content(); ?>
                     </div>
     
                     <div class="px-lg-5">
                         <ul class="list-unstyled">
-                            <li class="parrafo text-white-200 mb-lg-4 pb-lg-4 mb-3 pb-3 border-bottom border-secondary-100">
-                                <h2 class="fs-4 fw-regular text-white-200">Ahorro de tiempo y recursos</h2>
-                                Un solo equipo coordina todo, lo que reduce retrasos y costos por reprocesos.
-                                
-                            </li>
-                            <li class="parrafo text-white-200 mb-lg-4 pb-lg-4 mb-3 pb-3 border-bottom border-secondary-100">
-                                <h2 class="fs-4 fw-regular text-white-200">Mayor control del proyecto</h2>
-                                Centralizamos la comunicación, decisiones y ejecución para garantizar resultados sin desviaciones.
-                            </li>
-                            <li class="parrafo text-white-200 mb-lg-4 pb-lg-4 mb-3 pb-3 border-bottom border-secondary-100">
-                                <h2 class="fs-4 fw-regular text-white-200">Tranquilidad total para ti</h2>
-                                Nos hacemos cargo de cada detalle técnico, legal y operativo.
-                            </li>
+                            <?php if ($items) { ?>
+                                <?php foreach ($items as $item) { ?>
+                                    <li class="parrafo text-white-200 mb-lg-4 pb-lg-4 mb-3 pb-3 border-bottom border-secondary-100">
+                                        <h2 class="fs-4 fw-regular text-white-200"><?php echo $item['titulo']; ?></h2>
+                                        <?php echo $item['detalle']; ?>
+                                    </li>
+                                <?php } ?>
+                            <?php } ?>
                         </ul>
                     </div>
                 </article>
@@ -67,7 +89,7 @@ get_header('single');
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <div class="d-flex justify-content-lg-end h-100">
-                                        <a href="" class="customSeccionTarjetaNumero__link text-secondary-100 d-flex align-items-center gap-2">
+                                        <a href="/contactanos/" class="customSeccionTarjetaNumero__link text-secondary-100 d-flex align-items-center gap-2">
                                             Hazlo simple. Construye con respaldo.
                                             <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                         </a>

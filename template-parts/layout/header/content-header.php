@@ -2,13 +2,17 @@
 /**
  * Header principal del sitio
  */
+$grupo_header_top = get_field('grupo_header_top', 'options');
+$texto_header_top = $grupo_header_top['texto_header_top'] ?? '';
 ?>
 <header class="">
     <div class="headerTop bg-gray-100 py-lg-4 py-3">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col">
-                    <p class="text-white fw-light"><strong>Presencia sólida en:</strong> Panamá y Colombia</p>
+                    <?php if ($texto_header_top) { ?>
+                        <div class="text-white fw-light"><?php echo wp_kses_post($texto_header_top); ?></div>
+                    <?php } ?>
                 </div>
                 <div class="col text-end text-white">
                     Traductor

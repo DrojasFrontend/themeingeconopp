@@ -3,35 +3,54 @@
  * Template para mostrar el archivo de servicios con tabs por etiquetas
  */
 
-get_header(); ?>
+get_header(); 
+$paginaServicios     = get_page_by_path('servicios');
+$paginaServiciosID   = $paginaServicios ? $paginaServicios->ID : null;
+$grupo_hero          = ($paginaServiciosID) ? get_field('grupo_hero', $paginaServiciosID) : null;
+$titulo_hero         = $grupo_hero['titulo'] ?? '';
+$imagen_hero         = $grupo_hero['imagen'] ?? '';
+$imagen_hero_mobile  = $grupo_hero['imagen_mobile'] ?? '';
+
+if ($imagen_hero) {
+    $imagen_hero = $imagen_hero['ID'];
+}
+
+if ($imagen_hero_mobile) {
+    $imagen_hero_mobile = $imagen_hero_mobile['ID'];
+}
+
+if (!$titulo_hero) {
+    $titulo_hero = $paginaServicios ? get_the_title($paginaServiciosID) : post_type_archive_title('', false);
+}
+?>
 
 <main id="primary" class="site-main">
+
     <section class="customSeccionBannerImagen position-relative">
-        <img class="d-none d-lg-block img-fluid" src="<?php echo THEME_IMG; ?>/hero-servicios.webp" alt="Hero servicios" title="Hero servicios">
-        <img class="d-lg-none img-fluid" src="<?php echo THEME_IMG; ?>/hero-servicios-mobile.webp" alt="Hero servicios" title="Hero servicios">
+        <?php if ($imagen_hero) { ?>
+            <?php echo generar_image_responsive($imagen_hero, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
+            <?php echo generar_image_responsive($imagen_hero_mobile, 'custom-size', 'd-lg-none img-fluid', ''); ?>
+        <?php } ?>
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-lg-center align-items-end py-5">
             <div class="container">
-                <header>
-                    <h1 class="fs-1-medium text-white fw-semibold"><?php post_type_archive_title(); ?></h1>
-                </header>
+                <?php if ($titulo_hero) { ?>
+                    <header>
+                        <h1 class="fs-1-medium text-white fw-semibold">
+                            <?php echo $titulo_hero; ?>
+                        </h1>
+                    </header>
+                <?php } ?>
             </div>
         </div>
     </section>
 
-    <section class="customSeccionMarquee py-2">
-      <div class="swiper marqueeSwiper">
-        <div class="swiper-wrapper">
-          <?php for ($i = 0; $i < 5; $i++) { ?>
-          <div class="swiper-slide">
-            <div class="d-flex align-items-center">
-              <h2 class="d-none d-lg-block fs-1"> <strong>Diseñamos, gestionamos y ejecutamos soluciones</strong> constructivas a la medida de cada proyecto. </h2>
-              <h2 class="d-lg-none fs-4"> <strong>Diseñamos, gestionamos y ejecutamos soluciones</strong> constructivas a la medida de cada proyecto. </h2>
-            </div>
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </section>
+    <?php 
+        // Pasar parámetros al template part - Primera instancia
+        set_query_var('page_id_for_acf', $paginaServiciosID);
+        set_query_var('custom_class', 'py-2');
+        set_query_var('acf_group_name', 'grupo_texto_animado'); // Primer grupo ACF
+        get_template_part('template-parts/componentes/bloque-texto-animado'); 
+    ?>
 
     <section class="customSeccionArchiveServicios pt-lg-7 pt-4">
         <div class="container px-lg-3 px-0">
@@ -99,9 +118,14 @@ get_header(); ?>
                                                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                                 </h2>
                                                 <div class="d-flex align-items-center gap-2">
-                                                    <a href="" class="btn btn-gris">
-                                                        Descargar
-                                                    </a>
+                                                    <?php 
+                                                        $cta = get_field('grupo_descarga', get_the_ID());
+                                                    ?>
+                                                    <?php if ($cta) { ?>
+                                                        <a href="<?php echo $cta['cta']['url']; ?>" class="btn btn-gris" target="<?php echo $cta['cta']['target']; ?>" title="<?php echo $cta['cta']['title']; ?>">
+                                                            <?php echo $cta['cta']['title']; ?>
+                                                        </a>
+                                                    <?php } ?>
                                                     <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
                                                         <span class="sr-only">Leer más</span>
                                                         <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
@@ -126,39 +150,13 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="customSeccionMarcas pt-lg-7 pt-4">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="fs-2 mb-lg-5 mb-4">Ellos confiaron en <strong>nosotros</strong></h2>
-        </div>
-        <div class="row">
-          <div class="swiper marcaSwiper">
-            <div class="swiper-wrapper">
-              <?php for ($i = 0; $i < 2; $i++) { ?>
-                <div class="swiper-slide">
-                  <img class="img-fluid" src="<?php echo THEME_IMG; ?>/marca-1.png" alt="" title="">
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-fluid" src="<?php echo THEME_IMG; ?>/marca-2.png" alt="" title="">
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-fluid" src="<?php echo THEME_IMG; ?>/marca-3.png" alt="" title="">
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-fluid" src="<?php echo THEME_IMG; ?>/marca-4.png" alt="" title="">
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-fluid" src="<?php echo THEME_IMG; ?>/marca-5.png" alt="" title="">
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-fluid" src="<?php echo THEME_IMG; ?>/marca-6.png" alt="" title="">
-                </div>
-              <?php } ?>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <?php 
+        // Pasar parámetros al template part - Bloque empresas
+        set_query_var('page_id_for_acf', $paginaServiciosID);
+        set_query_var('custom_class', 'pt-lg-7 pt-4'); // Clase personalizada
+        set_query_var('acf_group_name', 'grupo_empresas'); // Grupo ACF específico
+        get_template_part('template-parts/componentes/bloque-empresas'); 
+     ?>
 
     <section class="customSeccionTarjetaNumero pt-lg-7 pt-4">
         <div class="px-lg-3">
@@ -217,27 +215,15 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="customSeccionMarquee pt-lg-7 pt-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center mb-4">
-            <?php get_template_part('template-parts/layout/header/content-logo'); ?>
-          </div>
-        </div>
-      </div>
-      <div class="swiper marqueeSwiper">
-        <div class="swiper-wrapper">
-          <?php for ($i = 0; $i < 5; $i++) { ?>
-          <div class="swiper-slide">
-            <div class="d-flex align-items-center">
-              <h2 class="d-none d-lg-block fs-1"><strong> Garantizamos</strong> cumplimiento, eficiencia y resultados. </h2>
-              <h2 class="d-lg-none fs-4"><strong> Garantizamos</strong> cumplimiento, eficiencia y resultados. </h2>
-            </div>
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </section>
+    <?php 
+        // Pasar parámetros al template part - Segunda instancia (Footer)
+        set_query_var('page_id_for_acf', $paginaServiciosID);
+        set_query_var('custom_class', 'pt-lg-7 pt-4');
+        set_query_var('acf_group_name', 'grupo_texto_animado_footer'); // Segundo grupo ACF
+        get_template_part('template-parts/componentes/bloque-texto-animado'); 
+    ?>
+
+    
 </main>
 
 <?php get_footer(); ?>
