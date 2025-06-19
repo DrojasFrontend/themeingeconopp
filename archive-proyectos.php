@@ -3,17 +3,42 @@
  * Template para mostrar el archivo de proyectos con tabs por etiquetas
  */
 
-get_header(); ?>
+get_header(); 
+$paginaProyectos     = get_page_by_path('proyectos');
+$paginaProyectosID   = $paginaProyectos ? $paginaProyectos->ID : null;
+$grupo_hero          = ($paginaProyectosID) ? get_field('grupo_hero', $paginaProyectosID) : null;
+$titulo_hero         = $grupo_hero['titulo'] ?? '';
+$imagen_hero         = $grupo_hero['imagen'] ?? '';
+$imagen_hero_mobile  = $grupo_hero['imagen_mobile'] ?? '';
+
+if ($imagen_hero) {
+    $imagen_hero = $imagen_hero['ID'];
+}
+
+if ($imagen_hero_mobile) {
+    $imagen_hero_mobile = $imagen_hero_mobile['ID'];
+}
+
+if (!$titulo_hero) {
+    $titulo_hero = $paginaProyectos ? get_the_title($paginaProyectosID) : post_type_archive_title('', false);
+}
+?>
 
 <main id="primary" class="site-main">
     <section class="customSeccionBannerImagen position-relative">
-        <img class="d-none d-lg-block img-fluid" src="<?php echo THEME_IMG; ?>/hero-proyectos.webp" alt="Hero proyectos" title="Hero proyectos">
-        <img class="d-lg-none img-fluid" src="<?php echo THEME_IMG; ?>/hero-proyectos-mobile.webp" alt="Hero proyectos" title="Hero proyectos">
+        <?php if ($imagen_hero) { ?>
+            <?php echo generar_image_responsive($imagen_hero, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
+            <?php echo generar_image_responsive($imagen_hero_mobile, 'custom-size', 'd-lg-none img-fluid', ''); ?>
+        <?php } ?>
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-lg-center align-items-end py-5">
             <div class="container">
-                <header>
-                    <h1 class="fs-1-medium text-white fw-semibold"><?php post_type_archive_title(); ?></h1>
-                </header>
+                <?php if ($titulo_hero) { ?>
+                    <header>
+                        <h1 class="fs-1-medium text-white fw-semibold">
+                            <?php echo $titulo_hero; ?>
+                        </h1>
+                    </header>
+                <?php } ?>
             </div>
         </div>
     </section>
