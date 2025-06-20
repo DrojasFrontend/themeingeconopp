@@ -52,7 +52,7 @@ if (!$titulo_hero) {
         get_template_part('template-parts/componentes/bloque-texto-animado'); 
     ?>
 
-    <section class="customSeccionArchiveServicios pt-lg-7 pt-4">
+    <section class="customSeccionArchiveServicios pt-lg-7 pt-5">
         <div class="container px-lg-3 px-0">
             <?php
             // Obtener todos los términos de la taxonomía 'servicios'
@@ -158,7 +158,7 @@ if (!$titulo_hero) {
         get_template_part('template-parts/componentes/bloque-empresas'); 
      ?>
 
-    <section class="customSeccionTarjetaNumero pt-lg-7 pt-4">
+    <section class="customSeccionTarjetaNumero pt-lg-7 pt-5">
         <div class="px-lg-3">
             <div class="bg-gray-400 rounded-4 py-4">
                 <div class="container">

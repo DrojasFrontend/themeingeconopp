@@ -9,7 +9,7 @@ if ($imagen) {
     $imagen = intval($imagen);
 }
 ?>
-<section class="customSeccionServicios pt-lg-7 pt-4">
+<section class="customSeccionServicios pt-lg-7 pt-5">
     <div class="container">
     <div class="row">
         <div class="col-12 col-lg-7 pe-6">
@@ -67,7 +67,7 @@ if ($imagen) {
                 <?php } ?>
             </div>
         </div>
-        <div class="customSwiperPagination d-flex justify-content-center swiper-pagination-servicio"></div>
+        <div class="customSwiperPagination d-flex justify-content-center swiper-pagination-servicio mt-4"></div>
     </div>
     </div>
 </section>

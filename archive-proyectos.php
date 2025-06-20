@@ -58,7 +58,7 @@ if (!$titulo_hero) {
       </div>
     </section>
 
-    <section class="customSeccionArchiveProyectos pt-lg-7 pt-4">
+    <section class="customSeccionArchiveProyectos pt-lg-7 pt-5">
         <div class="container px-lg-3 px-0">
             <?php
             // Obtener todos los términos de la taxonomía 'proyectos'
@@ -149,7 +149,7 @@ if (!$titulo_hero) {
         </div>
     </section>
 
-    <section class="customSeccionMarcas pt-lg-7 pt-4">
+    <section class="customSeccionMarcas pt-lg-7 pt-5">
       <div class="container">
         <div class="text-center">
           <h2 class="fs-2 mb-lg-5 mb-4">Ellos confiaron en <strong>nosotros</strong></h2>
@@ -183,7 +183,7 @@ if (!$titulo_hero) {
       </div>
     </section>
 
-    <section class="customSeccionTarjetaNumero pt-lg-7 pt-4">
+    <section class="customSeccionTarjetaNumero pt-lg-7 pt-5">
         <div class="px-lg-3">
             <div class="bg-gray-400 rounded-4 py-4">
                 <div class="container">
@@ -240,7 +240,7 @@ if (!$titulo_hero) {
         </div>
     </section>
 
-    <section class="customSeccionMarquee pt-lg-7 pt-4">
+    <section class="customSeccionMarquee pt-lg-7 pt-5">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-4">

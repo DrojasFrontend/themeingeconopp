@@ -4,7 +4,7 @@ $titulo           = $grupo_soluciones['titulo'] ?? '';
 $items            = $grupo_soluciones['items'] ?? '';
 ?>
 
-<section class="customSeccionSoluciones pt-lg-7 pt-4">
+<section class="customSeccionSoluciones pt-lg-7 pt-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">

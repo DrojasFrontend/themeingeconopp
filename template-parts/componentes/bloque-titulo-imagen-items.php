@@ -8,7 +8,7 @@ if ($imagen) {
 	$imagen = intval($imagen);
 }
 ?>
-<section class="customSeccionImagenItems pt-lg-7 pt-4">
+<section class="customSeccionImagenItems pt-lg-7 pt-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-5">
@@ -38,7 +38,7 @@ if ($imagen) {
 								$texto_item = esc_html($texto_item);
 							}
 						?>
-							<li class="position-relative pe-6 clickeable mb-4 list-style-none">
+							<li class="position-relative pe-6 clickeable mb-4 pe-5 list-style-none">
 								<?php if ($titulo_item) { ?>
 									<h3 class="fs-4 fw-regular mb-2"><?php echo $titulo_item; ?></h3>
 								<?php } ?>

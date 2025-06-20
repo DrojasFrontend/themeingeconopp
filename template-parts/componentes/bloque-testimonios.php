@@ -12,7 +12,7 @@ if ($texto) {
 }
 ?>
 
-<section class="customSeccionTestimonios pt-lg-7 pt-4"> 
+<section class="customSeccionTestimonios pt-lg-7 pt-5"> 
 	<div class="px-3">
 		<div class="bg-white pt-5 pb-lg-6 pb-5 rounded-5">
 			<div class="container">

@@ -6,7 +6,7 @@ $cta                        = $grupo_proyectos_destacados['cta'] ?? '';
 $items                      = $grupo_proyectos_destacados['proyectos'] ?? '';
 
 ?>
-<section class="customSeccionProyectos pt-lg-7 pt-4">
+<section class="customSeccionProyectos pt-lg-7 pt-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-6">

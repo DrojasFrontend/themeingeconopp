@@ -39,12 +39,15 @@ $cta_correo           = $grupo_redes_sociales['cta_correo'] ?? '';
 							<?php if ($cta_correo) { ?>
                                 <div class="d-flex flex-column gap-2">
                                     <h2 class="fs-4 fw-semibold"><?php echo esc_html($cta_correo['title']); ?></h2>
-									<?php if ($cta_correo && !empty($cta_correo['url'])) { ?>
+									<?php if ($cta_correo && !empty($cta_correo['url'])) { 
+										// Limpiar mailto: del texto visible
+										$email_display = str_replace('mailto:', '', $cta_correo['url']);
+									?>
 										<a href="<?php echo esc_url($cta_correo['url']); ?>" 
 										class="d-block fs-5" 
 										target="<?php echo esc_attr($cta_correo['target'] ?? '_self'); ?>" 
 										title="<?php echo esc_attr($cta_correo['title'] ?? ''); ?>">
-										   <?php echo esc_html($cta_correo['url']); ?>
+										   <?php echo esc_html($email_display); ?>
 										</a>
 									<?php } ?>
                                 </div>
