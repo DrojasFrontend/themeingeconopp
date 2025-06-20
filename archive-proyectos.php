@@ -115,22 +115,22 @@ if (!$titulo_hero) {
                                             $post_id          = get_the_ID();
                                             $grupo_proyectos  = get_field('grupo_proyectos', $post_id);
                                             $ubicacion        = $grupo_proyectos['ubicacion'] ?? '';
-                                            $texto            = $grupo_proyectos['texto'] ?? '';
+                                            $categoria        = $grupo_proyectos['categoria'] ?? '';
 
                                             if ($ubicacion) {
                                                 $ubicacion = esc_html($ubicacion);
                                             }
 
-                                            if ($texto) {
-                                                $texto = esc_html($texto);
+                                            if ($categoria) {
+                                                $categoria = esc_html($categoria);
                                             }
                                             ?>
                                             <p class="parrafo-small fw-semibold">Colombia</p>
                                             <h2 class="fs-4 fw-regular">
                                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                             </h2>
-                                            <?php if ($texto) { ?>
-                                                <p class="parrafo fw-normal"><?php echo $texto; ?></p>
+                                            <?php if ($categoria) { ?>
+                                                <p class="parrafo fw-normal"><?php echo $categoria; ?></p>
                                             <?php } ?>
                                             <div class="d-flex align-items-center justify-content-end gap-2">
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
@@ -148,8 +148,8 @@ if (!$titulo_hero) {
                                                     <h2 class="fs-4 fw-regular">
                                                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                                     </h2>
-                                                    <?php if ($texto) { ?>
-                                                        <p class="parrafo fw-normal"><?php echo $texto; ?></p>
+                                                    <?php if ($categoria) { ?>
+                                                        <p class="parrafo fw-normal"><?php echo $categoria; ?></p>
                                                     <?php } ?>
                                                 </div>
                                                 <div class="d-flex align-items-start gap-2">

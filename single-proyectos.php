@@ -57,10 +57,12 @@ get_header('single');
                                             </span>
                                         <?php } ?>
                                     </div>
-                                    <div class="text-lg-end mt-lg-0 mt-3">
-                                        <p class="fs-5 fw-semibold text-white-200">Tiempo de ejecución</p>
-                                        <p class="fw-normal text-white-200"><?php echo $tiempo_de_ejecucion; ?></p>
-                                    </div>
+                                    <?php if ($tiempo_de_ejecucion) { ?>
+                                        <div class="text-lg-end mt-lg-0 mt-3">
+                                            <p class="fs-5 fw-semibold text-white-200">Tiempo de ejecución</p>
+                                            <p class="fw-normal text-white-200"><?php echo $tiempo_de_ejecucion; ?></p>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +106,7 @@ get_header('single');
                                             $ejecutado_por = esc_html($ejecutado_por);
                                         }
                                     ?>
-                                    <div class="d-flex flex-column gap-2">
+                                    <div class="d-flex flex-column gap-4">
                                         <?php if ($fecha_de_inicio) { ?>
                                             <div>
                                                 <p class="fs-5 fw-semibold text-white-200">Fecha de inicio</p>
