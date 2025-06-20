@@ -1,7 +1,7 @@
 <?php
 // Obtener parámetros pasados desde el archivo principal
 $page_id_for_acf     = get_query_var('page_id_for_acf');
-$custom_class        = get_query_var('custom_class') ?: 'pt-lg-7 pt-4';
+$custom_class        = get_query_var('custom_class') ?: 'pt-lg-7 pt-5';
 $acf_group_name      = get_query_var('acf_group_name') ?: 'grupo_texto_animado'; // Fallback por defecto
 
 // Obtener el grupo ACF usando el nombre especificado

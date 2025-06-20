@@ -52,7 +52,7 @@ if (!$titulo_hero) {
         get_template_part('template-parts/componentes/bloque-texto-animado'); 
     ?>
 
-    <section class="customSeccionArchiveServicios pt-lg-7 pt-4">
+    <section class="customSeccionArchiveServicios pt-lg-7 pt-5">
         <div class="container px-lg-3 px-0">
             <?php
             // Obtener todos los términos de la taxonomía 'servicios'
@@ -93,7 +93,7 @@ if (!$titulo_hero) {
                         <?php if ($servicios_query->have_posts()) : ?>
                             <div class="servicios-grid">
                                 <?php while ($servicios_query->have_posts()) : $servicios_query->the_post(); ?>
-                                    <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveServicios__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100'); ?>>
+                                    <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveServicios__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100 clickeable'); ?>>
                                         <div class="d-flex flex-column d-lg-none justify-content-between">
                                             <div class="d-flex align-items-center justify-content-between gap-2">
                                                 <?php 
@@ -166,14 +166,14 @@ if (!$titulo_hero) {
     <?php 
         // Pasar parámetros al template part - Bloque empresas
         set_query_var('page_id_for_acf', $paginaServiciosID);
-        set_query_var('custom_class', 'pt-lg-7 pt-4'); // Clase personalizada
+        set_query_var('custom_class', 'pt-lg-7 pt-5'); // Clase personalizada
         set_query_var('acf_group_name', 'grupo_empresas'); // Grupo ACF específico
         get_template_part('template-parts/componentes/bloque-empresas'); 
      ?>
 
-    <section class="customSeccionTarjetaNumero pt-lg-7 pt-4">
+    <section class="customSeccionTarjetaNumero pt-lg-7 pt-5">
         <div class="px-lg-3">
-            <div class="bg-gray-400 rounded-4 py-4">
+            <div class="bg-gray-400 rounded-lg-4 py-4">
                 <div class="container">
                     <div class="row d-flex flex-lg-row flex-column-reverse">
                         <div class="col-12 col-lg-6">
@@ -231,7 +231,7 @@ if (!$titulo_hero) {
     <?php 
         // Pasar parámetros al template part - Segunda instancia (Footer)
         set_query_var('page_id_for_acf', $paginaServiciosID);
-        set_query_var('custom_class', 'pt-lg-7 pt-4');
+        set_query_var('custom_class', 'pt-lg-7 pt-5');
         set_query_var('acf_group_name', 'grupo_texto_animado_footer'); // Segundo grupo ACF
         get_template_part('template-parts/componentes/bloque-texto-animado'); 
     ?>

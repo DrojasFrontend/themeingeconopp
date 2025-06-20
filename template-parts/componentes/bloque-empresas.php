@@ -1,7 +1,7 @@
 <?php
 // Obtener parámetros pasados desde el archivo principal
 $page_id_for_acf     = get_query_var('page_id_for_acf');
-$custom_class        = get_query_var('custom_class') ?: 'pt-lg-7 pt-4';
+$custom_class        = get_query_var('custom_class') ?: 'pt-lg-7 pt-5';
 $acf_group_name      = get_query_var('acf_group_name') ?: 'grupo_empresas'; // Fallback por defecto
 
 // Obtener el grupo ACF usando el nombre especificado
@@ -14,7 +14,7 @@ $items               = $grupo_empresas['items'] ?? '';
 	<div class="container">
 		<div class="text-center">
 			<?php if ($titulo) { ?>
-				<h2 class="fs-2 mb-lg-5 mb-4"><?php echo $titulo; ?></h2>
+				<h2 class="fs-3 mb-lg-5 mb-4"><?php echo $titulo; ?></h2>
 			<?php } ?>
 		</div>
 		<div class="row">

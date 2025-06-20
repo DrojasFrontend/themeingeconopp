@@ -8,8 +8,8 @@ get_header('single');
 <main>
     <div class="container py-5">
         <div class="row">
-            <div class="col-12 col-lg-9 mx-auto">
-                <article>
+            <div class="col-12 col-lg-12 mx-auto">
+                <article class="singleServiciosArticle">
                     <div class="d-flex justify-content-between align-items-center mb-5 gap-5">
                         <p class="fs-5 text-white-200"><?php the_title(); ?></p>
                         <button type="button" class="border-0 bg-transparent text-white-200" onclick="history.back()">
@@ -70,8 +70,8 @@ get_header('single');
                     <div class="px-lg-5">
                         <ul class="list-unstyled">
                             <?php if ($items) { ?>
-                                <?php foreach ($items as $item) { ?>
-                                    <li class="parrafo text-white-200 mb-lg-4 pb-lg-4 mb-3 pb-3 border-bottom border-secondary-100">
+                                <?php foreach ($items as $key => $item) { ?>
+                                    <li class="parrafo text-white-200 mb-lg-4 pb-lg-4 mb-3 pb-3 border-bottom border-secondary-100 <?php echo $key == count($items) - 1 ? 'border-bottom-0' : ''; ?>">
                                         <h2 class="fs-4 fw-regular text-white-200"><?php echo $item['titulo']; ?></h2>
                                         <?php echo $item['detalle']; ?>
                                     </li>
@@ -91,7 +91,9 @@ get_header('single');
                                     <div class="d-flex justify-content-lg-end h-100">
                                         <a href="/contactanos/" class="customSeccionTarjetaNumero__link text-secondary-100 d-flex align-items-center gap-2">
                                             Hazlo simple. Construye con respaldo.
-                                            <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
+                                            <div class="d-none d-lg-block">
+                                                <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
+                                            </div>
                                         </a>
                                     </div>
                                 </div>
@@ -103,7 +105,7 @@ get_header('single');
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="customSeccionTarjetaNumero__item position-relative d-flex flex-column justify-content-end bg-primary-100 p-3 pb-5 rounded-4 h-100">
-                                                <div class="position-absolute top-0 start-0 pt-4 ps-3 text-secondary-100">
+                                                <div class="d-none d-lg-block position-absolute top-0 start-0 pt-4 ps-3 text-secondary-100">
                                                     <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                                 </div>
                                                 <img class="customSeccionTarjetaNumero__numero position-absolute" src="<?php echo THEME_IMG; ?>/numero-01.svg" alt="Numero 1" title="Numero 1">
@@ -115,7 +117,7 @@ get_header('single');
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="customSeccionTarjetaNumero__item position-relative d-flex flex-column justify-content-end bg-primary-100 p-3 pb-5 rounded-4 h-100">
-                                                <div class="position-absolute top-0 start-0 pt-4 ps-3 text-secondary-100">
+                                                <div class="d-none d-lg-block position-absolute top-0 start-0 pt-4 ps-3 text-secondary-100">
                                                     <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                                 </div>
                                                 <img class="customSeccionTarjetaNumero__numero position-absolute" src="<?php echo THEME_IMG; ?>/numero-02.svg" alt="Numero 2" title="Numero 2">
@@ -127,7 +129,7 @@ get_header('single');
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="customSeccionTarjetaNumero__item position-relative d-flex flex-column justify-content-end bg-primary-100 p-3 pb-5 rounded-4 h-100">
-                                                <div class="position-absolute top-0 start-0 pt-4 ps-3 text-secondary-100">
+                                                <div class="d-none d-lg-block position-absolute top-0 start-0 pt-4 ps-3 text-secondary-100">
                                                     <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                                 </div>
                                                 <img class="customSeccionTarjetaNumero__numero position-absolute" src="<?php echo THEME_IMG; ?>/numero-03.svg" alt="Numero 3" title="Numero 3">

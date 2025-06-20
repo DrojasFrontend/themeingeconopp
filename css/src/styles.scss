@@ -716,3 +716,47 @@ label:has(input[type="checkbox"]:checked) span:before {
 		}
 	}
 }
+
+/* customHoverZoom */
+.customHoverZoom {
+	img {
+		transition: all 0.3s ease-in-out;
+	}
+
+	&:hover {
+		img {
+			transform: scale(1.05);
+		}
+	}
+}
+
+.rounded-lg-4 {
+	@media only screen and (min-width: 992px) {
+		border-radius: 16px;
+	}
+}
+
+/* singleServiciosArticle */
+.singleServiciosArticle {
+	ul {
+		li {
+			position: relative;
+			list-style: none;
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: -35px;
+				margin-top: -12px;
+				width: 24px;
+				height: 24px;
+				background-image: url(../../images/iconos/icono-circulo-check.svg);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}

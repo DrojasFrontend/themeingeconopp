@@ -32,7 +32,7 @@ if ($imagen) {
         </div>
     </div>
 
-    <div class="pt-lg-7 pt-4">
+    <div class="pt-lg-7 pt-5">
         <div class="swiper serviciosSwiper">
             <div class="swiper-wrapper">
                 <?php if ($items) { ?>

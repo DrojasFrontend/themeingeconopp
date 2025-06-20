@@ -26,9 +26,9 @@ $items            = $grupo_soluciones['items'] ?? '';
 					}
 				?>
 					<div class="swiper-slide">
-						<div class="position-relative">
+						<div class="position-relative customHoverZoom overflow-hidden">
 							<?php if ($imagen_item) { ?>
-								<?php echo generar_image_responsive($imagen_item, 'custom-size', 'img-fluid', ''); ?>
+								<?php echo generar_image_responsive($imagen_item, 'custom-size', 'd-block img-fluid', ''); ?>
 							<?php } ?>
 							<?php if ($titulo_item) { ?>
 								<div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end justify-content-start p-4">

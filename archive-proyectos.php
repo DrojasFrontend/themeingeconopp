@@ -97,7 +97,7 @@ if (!$titulo_hero) {
                         <?php if ($servicios_query->have_posts()) : ?>
                             <div class="proyectos-grid">
                                 <?php while ($servicios_query->have_posts()) : $servicios_query->the_post(); ?>
-                                    <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveProyectos__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100'); ?>>
+                                    <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveProyectos__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100 clickeable'); ?>>
                                         <div class="d-flex flex-column d-lg-none justify-content-between">
                                             <?php 
                                             $post_id          = get_the_ID();
