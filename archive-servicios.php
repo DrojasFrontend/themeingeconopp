@@ -52,7 +52,7 @@ if (!$titulo_hero) {
         get_template_part('template-parts/componentes/bloque-texto-animado'); 
     ?>
 
-    <section class="customSeccionArchiveServicios pt-lg-7 pt-5">
+    <section class="customSeccionArchiveServicios pt-lg-7 pt-4">
         <div class="container px-lg-3 px-0">
             <?php
             // Obtener todos los términos de la taxonomía 'servicios'
@@ -94,9 +94,17 @@ if (!$titulo_hero) {
                                     <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveServicios__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100'); ?>>
                                         <div class="d-flex flex-column d-lg-none justify-content-between">
                                             <div class="d-flex align-items-center justify-content-between gap-2">
-                                                <a href="" class="btn btn-gris">
-                                                    Descargar
-                                                </a>
+                                                <?php 
+                                                    $cta_mobile = get_field('grupo_descarga', get_the_ID());
+                                                ?>
+                                                <?php if ($cta_mobile && isset($cta_mobile['cta']) && !empty($cta_mobile['cta']['url'])) { ?>
+                                                    <a href="<?php echo esc_url($cta_mobile['cta']['url']); ?>" 
+                                                       class="btn btn-gris"
+                                                       <?php echo !empty($cta_mobile['cta']['target']) ? 'target="' . esc_attr($cta_mobile['cta']['target']) . '"' : ''; ?>
+                                                       title="<?php echo esc_attr($cta_mobile['cta']['title']); ?>">
+                                                        <?php echo esc_html($cta_mobile['cta']['title']); ?>
+                                                    </a>
+                                                <?php } ?>
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
                                                     <span class="sr-only">Leer más</span>
                                                     <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
@@ -121,9 +129,12 @@ if (!$titulo_hero) {
                                                     <?php 
                                                         $cta = get_field('grupo_descarga', get_the_ID());
                                                     ?>
-                                                    <?php if ($cta) { ?>
-                                                        <a href="<?php echo $cta['cta']['url']; ?>" class="btn btn-gris" target="<?php echo $cta['cta']['target']; ?>" title="<?php echo $cta['cta']['title']; ?>">
-                                                            <?php echo $cta['cta']['title']; ?>
+                                                    <?php if ($cta && isset($cta['cta']) && !empty($cta['cta']['url'])) { ?>
+                                                        <a href="<?php echo esc_url($cta['cta']['url']); ?>" 
+                                                           class="btn btn-gris" 
+                                                           <?php echo !empty($cta['cta']['target']) ? 'target="' . esc_attr($cta['cta']['target']) . '"' : ''; ?>
+                                                           title="<?php echo esc_attr($cta['cta']['title']); ?>">
+                                                            <?php echo esc_html($cta['cta']['title']); ?>
                                                         </a>
                                                     <?php } ?>
                                                     <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
@@ -158,7 +169,7 @@ if (!$titulo_hero) {
         get_template_part('template-parts/componentes/bloque-empresas'); 
      ?>
 
-    <section class="customSeccionTarjetaNumero pt-lg-7 pt-5">
+    <section class="customSeccionTarjetaNumero pt-lg-7 pt-4">
         <div class="px-lg-3">
             <div class="bg-gray-400 rounded-4 py-4">
                 <div class="container">

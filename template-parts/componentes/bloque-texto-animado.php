@@ -27,16 +27,17 @@ if ($imagen) {
 	<div class="swiper marqueeSwiper">
 		<div class="swiper-wrapper">
 			<?php if ($items) { ?>
-				<?php foreach ($items as $item) { ?>
-					<?php $texto = $item['texto'] ?? ''; ?>
-			    <div class="swiper-slide">
-						<div class="d-flex align-items-center">
+				<?php foreach ($items as $item) { 
+					$texto = $item['texto'] ?? '';
+				?>
+					<div class="swiper-slide">
+						<div class="d-flex">
 							<?php if ($texto) { ?>
 								<div class="d-none d-lg-block fs-1"><?php echo $texto; ?></div>
 								<div class="d-lg-none fs-4"><?php echo $texto; ?></div>
 							<?php } ?>
 						</div>
-				  </div>
+					</div>
 				<?php } ?>
 			<?php } ?>
 		</div>

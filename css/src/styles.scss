@@ -460,6 +460,10 @@ main {
 	.swiper-slide {
 		width: auto;
 	}
+
+	.swiper-wrapper {
+		height: auto !important;
+	}
 }
 
 .marquee-container {
