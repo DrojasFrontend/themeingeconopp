@@ -136,6 +136,26 @@
                     "append": ""
                 },
                 {
+                    "key": "field_6854ba83e1e79",
+                    "label": "Texto",
+                    "name": "texto",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Construcción",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_6854a2a9a6891",
                     "label": "Fecha de inicio",
                     "name": "fecha_de_inicio",
@@ -216,5 +236,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1750378382
+    "modified": 1750383334
 }

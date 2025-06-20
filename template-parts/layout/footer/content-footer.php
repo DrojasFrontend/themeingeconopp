@@ -3,7 +3,6 @@ $grupo_contacto       = get_field('grupo_contacto', 'options');
 $items                = $grupo_contacto['items'] ?? '';
 
 $grupo_redes_sociales = get_field('grupo_redes_sociales', 'options');
-$items_redes_sociales = $grupo_redes_sociales['items'] ?? '';
 $cta_correo           = $grupo_redes_sociales['cta_correo'] ?? '';
 ?>
 <footer class="pt-5 pb-3">
@@ -52,27 +51,9 @@ $cta_correo           = $grupo_redes_sociales['cta_correo'] ?? '';
 									<?php } ?>
                                 </div>
 							<?php } ?>
-                            <div>
-                                <ul class="d-flex justify-content-lg-end gap-3 mt-lg-5 mt-3">
-                                    <?php if ($items_redes_sociales) { ?>
-                                        <?php foreach ($items_redes_sociales as $item) { 
-											$cta = $item['cta'];
-										?>
-                                            <li class="list-style-none">
-                                                <?php if ($cta && !empty($cta['url'])) { ?>
-                                                    <a href="<?php echo esc_url($cta['url']); ?>" 
-                                                    class="d-block" 
-                                                    target="<?php echo esc_attr($cta['target'] ?? '_self'); ?>" 
-                                                    title="<?php echo esc_attr($cta['title'] ?? ''); ?>">
-                                                    <span class="sr-only"><?php echo esc_html($cta['title'] ?? ''); ?></span>
-                                                    <img width="32" height="32" src="<?php echo esc_url($item['icono']); ?>" alt="<?php echo esc_attr($cta['title'] ?? ''); ?>" title="<?php echo esc_attr($cta['title'] ?? ''); ?>">
-                                                    </a>
-                                                <?php } ?>
-                                            </li>
-                                        <?php } ?>
-                                    <?php } ?>
-                                </ul>
-                            </div>
+                            <!-- Redes sociales -->
+                            <?php get_template_part('template-parts/componentes/bloque-redes-sociales'); ?>
+                            <!-- Redes sociales -->
                         </div>
                     </div>
                 </div>

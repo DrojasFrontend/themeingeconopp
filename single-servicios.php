@@ -12,7 +12,7 @@ get_header('single');
                 <article>
                     <div class="d-flex justify-content-between align-items-center mb-5 gap-5">
                         <p class="fs-5 text-white-200"><?php the_title(); ?></p>
-                        <button type="button" class="border-0 bg-transparent" onclick="history.back()">
+                        <button type="button" class="border-0 bg-transparent text-white-200" onclick="history.back()">
                             <?php get_template_part('template-parts/componentes/icono-cerrar'); ?>
                         </button>
                     </div>

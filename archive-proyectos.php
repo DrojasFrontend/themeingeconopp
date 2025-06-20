@@ -99,6 +99,20 @@ if (!$titulo_hero) {
                                 <?php while ($servicios_query->have_posts()) : $servicios_query->the_post(); ?>
                                     <article id="post-<?php the_ID(); ?>" <?php post_class('customSeccionArchiveProyectos__grid d-lg-grid gap-3 mb-lg-5 pb-lg-5 mb-4 pb-4 border-bottom border-secondary-100'); ?>>
                                         <div class="d-flex flex-column d-lg-none justify-content-between">
+                                            <?php 
+                                            $post_id          = get_the_ID();
+                                            $grupo_proyectos  = get_field('grupo_proyectos', $post_id);
+                                            $ubicacion        = $grupo_proyectos['ubicacion'] ?? '';
+                                            $texto            = $grupo_proyectos['texto'] ?? '';
+
+                                            if ($ubicacion) {
+                                                $ubicacion = esc_html($ubicacion);
+                                            }
+
+                                            if ($texto) {
+                                                $texto = esc_html($texto);
+                                            }
+                                            ?>
                                             <p class="parrafo-small fw-semibold">Colombia</p>
                                             <h2 class="fs-4 fw-regular">
                                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -114,11 +128,15 @@ if (!$titulo_hero) {
                                         <div class="d-flex flex-column justify-content-between gap-3">
                                             <div class="d-none d-lg-flex justify-content-between">
                                                 <div class="d-flex flex-column gap-2">
-                                                    <p class="parrafo-small fw-semibold">Colombia</p>
+                                                    <?php if ($ubicacion) { ?>
+                                                        <p class="parrafo-small fw-semibold"><?php echo $ubicacion; ?></p>
+                                                    <?php } ?>
                                                     <h2 class="fs-4 fw-regular">
                                                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                                     </h2>
-                                                    <p class="parrafo fw-normal">Construcción</p>
+                                                    <?php if ($texto) { ?>
+                                                        <p class="parrafo fw-normal"><?php echo $texto; ?></p>
+                                                    <?php } ?>
                                                 </div>
                                                 <div class="d-flex align-items-start gap-2">
                                                     <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
