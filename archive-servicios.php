@@ -59,6 +59,8 @@ if (!$titulo_hero) {
             $terms = get_terms(array(
                 'taxonomy' => 'servicios',
                 'hide_empty' => true,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
             ));
             ?>
             <!-- Nav tabs -->
