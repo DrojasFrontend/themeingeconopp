@@ -6,7 +6,7 @@
 get_header('single');
 ?>
 <main>
-    <div class="container py-5">
+    <div class="container py-5 mb-5">
         <div class="row">
             <div class="col-12 col-lg-11 mx-auto">
                 <article>
@@ -23,19 +23,47 @@ get_header('single');
                                     <h1 class="fs-1-big text-white fw-semibold text-white-200"><?php the_title(); ?></h1>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-start gap-2">
-                                    <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
-                                        <?php get_template_part('template-parts/componentes/icono-corazon'); ?>
-                                        Obra civil
-                                    </span>
-                                    <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
-                                        <?php get_template_part('template-parts/componentes/icono-en-proceso'); ?>
-                                        En proceso
-                                    </span>
+                                    <?php
+                                        $post_id          = get_the_ID();
+                                        $grupo_proyectos  = get_field('grupo_proyectos', $post_id);
+                                        $servicio         = $grupo_proyectos['servicio'] ?? '';
+                                        $estatus          = $grupo_proyectos['estatus'] ?? '';
+
+                                        if ($estatus) {
+                                            $estatus = esc_html($estatus);
+                                        }
+
+                                        if ($servicio) {
+                                            $servicio = esc_html($servicio);
+                                        }
+                                    ?>
+                                    <?php if ($servicio) { ?>
+                                        <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
+                                            <?php get_template_part('template-parts/componentes/icono-corazon'); ?>
+                                            <?php echo $servicio; ?>
+                                        </span>
+                                    <?php } ?>
+                                    
+                                    <?php if ($estatus) { ?>
+                                        <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
+                                            <?php get_template_part('template-parts/componentes/icono-en-proceso'); ?>
+                                            <?php echo $estatus; ?>
+                                        </span>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                         <div class="my-4">
-                            <img src="<?php echo THEME_IMG; ?>/post-llaves-en-mano.webp" alt="<?php the_title(); ?>" class="img-fluid rounded-4 overflow-hidden">
+                            <?php
+                                $grupo_imagen   = get_field('grupo_imagen', $post_id);
+                                $imagen_grande  = $grupo_imagen['imagen'] ?? '';
+                                if ($imagen_grande) {
+                                    $imagen_grande = $imagen_grande['ID'];
+                                }
+                            ?>
+                            <?php if ($imagen_grande) { ?>
+                                <?php echo generar_image_responsive($imagen_grande, 'custom-size', 'img-fluid rounded-4 overflow-hidden', ''); ?>
+                            <?php } ?>
                         </div>
                     </header>
                     
@@ -43,17 +71,42 @@ get_header('single');
                         <div class="row">
                             <div class="col-12 col-lg-3 border-end border-secondary-100">
                                 <div class="d-flex flex-column gap-4">
-                                    <div class="">
-                                        <p class="fs-5 fw-semibold text-white-200">Fecha de inicio</p>
-                                        <p class="fs-5 fw-normal text-white-200">02 Jun 2025</p>
-                                    </div>
-                                    <div class="">
-                                        <p class="fs-5 fw-semibold text-white-200">Ubicación</p>
-                                        <p class="fs-5 fw-normal text-white-200">Barranquilla</p>
-                                    </div>
-                                    <div class="">
-                                        <p class="fs-5 fw-semibold text-white-200">Tipo de proyecto</p>
-                                        <p class="fs-5 fw-normal text-white-200">Industrial</p>
+                                    <?php
+                                        $fecha_de_inicio  = $grupo_proyectos['fecha_de_inicio'] ?? '';
+                                        $ubicacion        = $grupo_proyectos['ubicacion'] ?? '';
+                                        $tipo_de_proyecto = $grupo_proyectos['tipo_de_proyecto'] ?? '';
+
+                                        if ($fecha_de_inicio) {
+                                            $fecha_de_inicio = esc_html($fecha_de_inicio);
+                                        }
+
+                                        if ($ubicacion) {
+                                            $ubicacion = esc_html($ubicacion);
+                                        }
+
+                                        if ($tipo_de_proyecto) {
+                                            $tipo_de_proyecto = esc_html($tipo_de_proyecto);
+                                        }
+                                    ?>
+                                    <div class="d-flex flex-column gap-2">
+                                        <?php if ($fecha_de_inicio) { ?>
+                                            <div>
+                                                <p class="fs-5 fw-semibold text-white-200">Fecha de inicio</p>
+                                                <p class="fs-5 fw-normal text-white-200"><?php echo $fecha_de_inicio; ?></p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($ubicacion) { ?>
+                                            <div>
+                                                <p class="fs-5 fw-semibold text-white-200">Ubicación</p>
+                                                <p class="fs-5 fw-normal text-white-200"><?php echo $ubicacion; ?></p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($tipo_de_proyecto) { ?>
+                                            <div>
+                                                <p class="fs-5 fw-semibold text-white-200">Tipo de proyecto</p>
+                                                <p class="fs-5 fw-normal text-white-200"><?php echo $tipo_de_proyecto; ?></p>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
