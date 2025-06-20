@@ -112,10 +112,16 @@ if (!$titulo_hero) {
                                                     <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                                 </a>
                                             </div>
+                                            <?php 
+                                                $grupo_detalle = get_field('grupo_detalle', get_the_ID());
+                                                $tipo          = $grupo_detalle['tipo'] ?? '';
+                                            ?>
                                             <h2 class="fs-4 fw-regular">
                                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                             </h2>
-                                            
+                                            <?php if ($tipo) { ?>
+                                                <p class="parrafo mt-1"><?php echo $tipo; ?></p>
+                                            <?php } ?>
                                         </div>
                                         <?php if (has_post_thumbnail()) : ?>
                                             <div class="d-flex justify-content-center">
@@ -124,9 +130,15 @@ if (!$titulo_hero) {
                                         <?php endif; ?>
                                         <div class="d-flex flex-column justify-content-between gap-3">
                                             <div class="d-none d-lg-flex justify-content-between">
-                                                <h2 class="fs-4 fw-regular">
-                                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                                </h2>
+                                                <div>
+                                                    <h2 class="fs-4 fw-regular">
+                                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                                    </h2>
+                                                    
+                                                    <?php if ($tipo) { ?>
+                                                        <p class="parrafo mt-1"><?php echo $tipo; ?></p>
+                                                    <?php } ?>
+                                                </div>
                                                 <div class="d-flex align-items-center gap-2">
                                                     <?php 
                                                         $cta = get_field('grupo_descarga', get_the_ID());

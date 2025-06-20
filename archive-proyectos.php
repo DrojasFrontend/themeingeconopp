@@ -117,7 +117,9 @@ if (!$titulo_hero) {
                                             <h2 class="fs-4 fw-regular">
                                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                             </h2>
-                                            <p class="parrafo fw-normal">Construcción</p>
+                                            <?php if ($texto) { ?>
+                                                <p class="parrafo fw-normal"><?php echo $texto; ?></p>
+                                            <?php } ?>
                                             <div class="d-flex align-items-center justify-content-end gap-2">
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-blanco bg-transparent border-0 p-0">
                                                     <span class="sr-only">Leer más</span>
@@ -125,7 +127,7 @@ if (!$titulo_hero) {
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="d-flex flex-column justify-content-between gap-3">
+                                        <div class="d-none d-lg-flex flex-column justify-content-between gap-3">
                                             <div class="d-none d-lg-flex justify-content-between">
                                                 <div class="d-flex flex-column gap-2">
                                                     <?php if ($ubicacion) { ?>
@@ -144,9 +146,6 @@ if (!$titulo_hero) {
                                                         <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
                                                     </a>
                                                 </div>
-                                            </div>
-                                            <div class="fs-5">
-                                                <?php the_excerpt(); ?>
                                             </div>
                                         </div>
                                         <?php if (has_post_thumbnail()) : ?>

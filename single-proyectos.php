@@ -22,34 +22,45 @@ get_header('single');
                                 <div class="col-12 col-lg-6">
                                     <h1 class="fs-1-big text-white fw-semibold text-white-200"><?php the_title(); ?></h1>
                                 </div>
-                                <div class="d-flex justify-content-start align-items-start gap-2">
+                                <div class="d-flex flex-column justify-content-between align-items-start gap-2">
                                     <?php
-                                        $post_id          = get_the_ID();
-                                        $grupo_proyectos  = get_field('grupo_proyectos', $post_id);
-                                        $servicio         = $grupo_proyectos['servicio'] ?? '';
-                                        $estatus          = $grupo_proyectos['estatus'] ?? '';
+                                        $post_id             = get_the_ID();
+                                        $grupo_proyectos     = get_field('grupo_proyectos', $post_id);
+                                        $categoria           = $grupo_proyectos['categoria'] ?? '';
+                                        $estatus             = $grupo_proyectos['estatus'] ?? '';
+                                        $tiempo_de_ejecucion = $grupo_proyectos['tiempo_de_ejecucion'] ?? '';
 
                                         if ($estatus) {
                                             $estatus = esc_html($estatus);
                                         }
 
-                                        if ($servicio) {
-                                            $servicio = esc_html($servicio);
+                                        if ($categoria) {
+                                            $categoria = esc_html($categoria);
+                                        }
+
+                                        if ($tiempo_de_ejecucion) {
+                                            $tiempo_de_ejecucion = esc_html($tiempo_de_ejecucion);
                                         }
                                     ?>
-                                    <?php if ($servicio) { ?>
-                                        <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
-                                            <?php get_template_part('template-parts/componentes/icono-corazon'); ?>
-                                            <?php echo $servicio; ?>
-                                        </span>
-                                    <?php } ?>
-                                    
-                                    <?php if ($estatus) { ?>
-                                        <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
-                                            <?php get_template_part('template-parts/componentes/icono-en-proceso'); ?>
-                                            <?php echo $estatus; ?>
-                                        </span>
-                                    <?php } ?>
+                                    <div class="d-flex justify-content-start align-items-start gap-2">
+                                        <?php if ($categoria) { ?>
+                                            <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
+                                                <?php get_template_part('template-parts/componentes/icono-corazon'); ?>
+                                                <?php echo $categoria; ?>
+                                            </span>
+                                        <?php } ?>
+                                        
+                                        <?php if ($estatus) { ?>
+                                            <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
+                                                <?php get_template_part('template-parts/componentes/icono-en-proceso'); ?>
+                                                <?php echo $estatus; ?>
+                                            </span>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="text-lg-end mt-lg-0 mt-3">
+                                        <p class="fs-5 fw-semibold text-white-200">Tiempo de ejecución</p>
+                                        <p class="fw-normal text-white-200"><?php echo $tiempo_de_ejecucion; ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -69,12 +80,13 @@ get_header('single');
                     
                     <div>
                         <div class="row">
-                            <div class="col-12 col-lg-3 border-end border-secondary-100">
+                            <div class="col-12 col-lg-4 border-end border-secondary-100">
                                 <div class="d-flex flex-column gap-4">
                                     <?php
                                         $fecha_de_inicio  = $grupo_proyectos['fecha_de_inicio'] ?? '';
                                         $ubicacion        = $grupo_proyectos['ubicacion'] ?? '';
                                         $tipo_de_proyecto = $grupo_proyectos['tipo_de_proyecto'] ?? '';
+                                        $ejecutado_por    = $grupo_proyectos['ejecutado_por'] ?? '';
 
                                         if ($fecha_de_inicio) {
                                             $fecha_de_inicio = esc_html($fecha_de_inicio);
@@ -86,6 +98,10 @@ get_header('single');
 
                                         if ($tipo_de_proyecto) {
                                             $tipo_de_proyecto = esc_html($tipo_de_proyecto);
+                                        }
+
+                                        if ($ejecutado_por) {
+                                            $ejecutado_por = esc_html($ejecutado_por);
                                         }
                                     ?>
                                     <div class="d-flex flex-column gap-2">
@@ -107,14 +123,20 @@ get_header('single');
                                                 <p class="fs-5 fw-normal text-white-200"><?php echo $tipo_de_proyecto; ?></p>
                                             </div>
                                         <?php } ?>
+                                        <?php if ($ejecutado_por) { ?>
+                                            <div>
+                                                <p class="fs-5 fw-semibold text-white-200">Ejecutado por</p>
+                                                <p class="fs-5 fw-normal text-white-200"><?php echo $ejecutado_por; ?></p>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-9">
-                                <div class="d-flex flex-column justify-content-center gap-4 ps-3 h-100">
-                                    <h2 class="fs-3 fw-semibold text-white-200">Planta Industrial - Procaps S.A.</h2>
+                            <div class="col-12 col-lg-8">
+                                <div class="d-flex flex-column justify-content-center gap-4 ps-lg-3 mt-lg-0 mt-3 h-100">
+                                    <h2 class="fs-3 fw-semibold text-white-200"><?php the_excerpt(); ?></h2>
                                     <p class="fs-5 text-white-200 mb-0">
-                                        Obras civiles para la construcción de cimentaciones para Microturbina y equipos auxiliares, inlcuye obras de urbanismo, albañileria , Carpinteria Metálica. 
+                                        <?php the_content(); ?>
                                     </p>
                                 </div>
                             </div>
