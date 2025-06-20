@@ -60,7 +60,7 @@ if (!$titulo_hero) {
                 'taxonomy' => 'servicios',
                 'hide_empty' => true,
                 'orderby' => 'menu_order',
-                'order' => 'ASC',
+                'order' => 'DESC',
             ));
             ?>
             <!-- Nav tabs -->
