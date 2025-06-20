@@ -3672,6 +3672,9 @@ strong {
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
 }
+.customSeccionBannerImagen__video {
+  height: 500px;
+}
 
 /* customSeccionServicios */
 .customSeccionServicios__img {
