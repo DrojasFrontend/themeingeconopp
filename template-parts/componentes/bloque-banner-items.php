@@ -12,7 +12,7 @@ if ($imagen_mobile) {
     $imagen_mobile = intval($imagen_mobile);
 }
 ?>
-<section class="customSeccionBannerImagen position-relative pt-5">
+<section class="customSeccionBannerImagen position-relative pt-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
     <?php if ($imagen) { ?>
         <?php echo generar_image_responsive($imagen, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
     <?php } ?>
@@ -40,10 +40,10 @@ if ($imagen_mobile) {
                         <div class="swiper-slide">
                             <div class="text-center text-lg-start">
                                 <?php if ($titulo) { ?>
-                                    <p class="fs-5 text-white"><?php echo $titulo; ?></p>
+                                    <p class="fs-5 text-white wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s"><?php echo $titulo; ?></p>
                                 <?php } ?>
                                 <?php if ($detalle) { ?>
-                                    <span class="fs-1-medium text-white fw-semibold"><?php echo $detalle; ?></span>
+                                    <span class="fs-1-medium text-white fw-semibold wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s"><?php echo $detalle; ?></span>
                                 <?php } ?>
                             </div>
                         </div>

@@ -11,14 +11,14 @@ if ($imagen) {
 <section class="customSeccionImagenItems pt-lg-7 pt-5">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-lg-5">
+			<div class="col-12 col-lg-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 				<?php if ($titulo) { ?>
 					<h2 class="fs-2 mb-lg-0 mb-4"><?php echo $titulo; ?></h2>
 				<?php } ?>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 col-lg-5">
+			<div class="col-12 col-lg-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 				<?php if ($imagen) { ?>
 					<?php echo generar_image_responsive($imagen, 'custom-size', 'img-fluid mb-lg-0 mb-4', ''); ?>
 				<?php } ?>
@@ -26,7 +26,7 @@ if ($imagen) {
 			<div class="col-12 col-lg-7">
 				<?php if ($items) { ?>
 					<ul>
-						<?php foreach ($items as $item) { 
+						<?php foreach ($items as $key => $item) { 
 							$titulo_item = $item['titulo'] ?? '';
 							$texto_item  = $item['texto'] ?? '';
 							$cta_item    = $item['cta'] ?? '';
@@ -38,7 +38,7 @@ if ($imagen) {
 								$texto_item = esc_html($texto_item);
 							}
 						?>
-							<li class="position-relative pe-6 clickeable mb-4 pe-5 list-style-none">
+							<li class="position-relative pe-6 clickeable mb-4 pe-5 list-style-none wow fadeInUp" data-wow-duration="1s" data-wow-delay="<?php echo $key * 0.2; ?>s">
 								<?php if ($titulo_item) { ?>
 									<h3 class="fs-4 fw-regular mb-2"><?php echo $titulo_item; ?></h3>
 								<?php } ?>

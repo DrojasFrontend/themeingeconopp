@@ -25,7 +25,7 @@ if (!$titulo_hero) {
 ?>
 
 <main id="primary" class="site-main">
-    <section class="customSeccionBannerImagen position-relative">
+    <section class="customSeccionBannerImagen position-relative wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
         <?php if ($imagen_hero) { ?>
             <?php echo generar_image_responsive($imagen_hero, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
             <?php echo generar_image_responsive($imagen_hero_mobile, 'custom-size', 'd-lg-none img-fluid', ''); ?>
@@ -43,7 +43,7 @@ if (!$titulo_hero) {
         </div>
     </section>
 
-    <section class="customSeccionMarquee py-2">
+    <section class="customSeccionMarquee py-2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
       <div class="swiper marqueeSwiper">
         <div class="swiper-wrapper">
           <?php for ($i = 0; $i < 5; $i++) { ?>
@@ -58,7 +58,7 @@ if (!$titulo_hero) {
       </div>
     </section>
 
-    <section class="customSeccionArchiveProyectos pt-lg-7 pt-5">
+    <section class="customSeccionArchiveProyectos pt-lg-7 pt-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
         <div class="container px-lg-3 px-0">
             <?php
             // Obtener todos los términos de la taxonomía 'proyectos'

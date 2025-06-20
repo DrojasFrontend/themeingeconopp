@@ -5,7 +5,7 @@ $items                = $grupo_contacto['items'] ?? '';
 $grupo_redes_sociales = get_field('grupo_redes_sociales', 'options');
 $cta_correo           = $grupo_redes_sociales['cta_correo'] ?? '';
 ?>
-<footer class="pt-5 pb-3">
+<footer class="pt-5 pb-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
     <div class="px-3">
         <div class="bg-white rounded-4">
             <div class="container">

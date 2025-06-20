@@ -8,7 +8,7 @@ $items                      = $grupo_proyectos_destacados['proyectos'] ?? '';
 ?>
 <section class="customSeccionProyectos pt-lg-7 pt-5">
 	<div class="container">
-		<div class="row">
+		<div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 			<div class="col-12 col-lg-6">
 				<?php if ($titulo) { ?>
 					<h2 class="fs-2"><?php echo $titulo; ?></h2>
@@ -43,8 +43,8 @@ $items                      = $grupo_proyectos_destacados['proyectos'] ?? '';
 		<div class="swiper proyectosSwiper">
 			<div class="swiper-wrapper">
 				<?php if ($items) { ?>
-					<?php foreach ($items as $item) { ?>
-						<div class="swiper-slide">
+					<?php foreach ($items as $key => $item) { ?>
+						<div class="swiper-slide wow fadeInUp" data-wow-duration="1s" data-wow-delay="<?php echo $key * 0.2; ?>s">
 							<?php 
 								$imagen_proyecto = get_the_post_thumbnail_url($item->ID, 'large');
 								if (!$imagen_proyecto) {

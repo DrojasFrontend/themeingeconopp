@@ -16,7 +16,7 @@ if ($imagen) {
 ?>
 <section class="customSeccionMarquee <?php echo esc_attr($custom_class); ?>">
     <?php if ($imagen) { ?>
-		<div class="container">
+		<div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 			<div class="row">
 				<div class="col-12 text-center mb-4">
 					<?php echo generar_image_responsive($imagen, 'custom-size', '', ''); ?>
@@ -24,7 +24,7 @@ if ($imagen) {
 			</div>
 		</div>
 	<?php } ?>
-	<div class="swiper marqueeSwiper">
+	<div class="swiper marqueeSwiper wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 		<div class="swiper-wrapper">
 			<?php if ($items) { ?>
 				<?php foreach ($items as $item) { 

@@ -8,7 +8,7 @@ $grupo_contacto = get_field('grupo_contacto', 'options');
 $items          = $grupo_contacto['items'] ?? '';
 ?>
 
-  <footer class="bg-gray-200 py-5">
+  <footer class="bg-gray-200 py-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
     <div class="py-lg-5">
       <div class="container">
         <div class="row">

@@ -18,7 +18,7 @@ if ($texto) {
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-lg-5">
-						<div class="col-12 col-lg-10">
+						<div class="col-12 col-lg-10 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 							<?php if ($titulo) { ?>
 								<h2 class="fs-2 fw-semibold mb-2"><?php echo $titulo; ?></h2>
 							<?php } ?>
@@ -33,7 +33,7 @@ if ($texto) {
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-7">
+					<div class="col-12 col-lg-7 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 						<div class="swiper testimoniosSwiper">
 							<div class="swiper-wrapper">
 								<?php if ($items) { ?>

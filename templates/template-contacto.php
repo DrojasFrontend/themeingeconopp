@@ -28,21 +28,21 @@ if ($imagen_formulario) {
       <div class="row">
         <div class="col-12 col-lg-6">
           <?php if ($titulo_formulario) { ?>
-            <h1 class="fs-1-medium fw-semibold letter-spacing-4 mb-2"><?php echo esc_html($titulo_formulario); ?></h1>
+            <h1 class="fs-1-medium fw-semibold letter-spacing-4 mb-2 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><?php echo esc_html($titulo_formulario); ?></h1>
           <?php } ?>
           <?php if ($texto_formulario) { ?>
-            <p class="fs-1 text-secondary-100 mb-4">
+            <p class="fs-1 text-secondary-100 mb-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
               <?php echo wp_kses_post($texto_formulario); ?>
             </p>
           <?php } ?>
-          <div class="customSeccionContacto__img position-relative float-end">
+          <div class="customSeccionContacto__img position-relative float-end wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
             <?php if ($imagen_formulario) { ?>
               <?php echo generar_image_responsive($imagen_formulario, 'custom-size', 'd-block img-fluid', ''); ?>
             <?php } ?>
           </div>
         </div>
         <div class="col-12 col-lg-6">
-          <div class="pt-5">
+          <div class="pt-5 wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">
             <?php if ($shortcode_formulario) { ?>
               <?php echo do_shortcode($shortcode_formulario); ?>
             <?php } ?>

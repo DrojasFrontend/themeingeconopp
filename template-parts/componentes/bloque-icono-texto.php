@@ -22,7 +22,7 @@ $items             = $grupo_icono_texto['items'] ?? '';
                             // Clase condicional para el segundo slide
                             $slide_class = ($index === 1) ? 'swiper-slide ps-lg-5' : 'swiper-slide pe-lg-5';
                             ?>
-                            <div class="<?php echo $slide_class; ?>">
+                            <div class="<?php echo $slide_class; ?> wow fadeInUp" data-wow-duration="1s" data-wow-delay="<?php echo $index * 0.2; ?>s">
                                 <div class="text-center px-3">
                                     <?php if ($imagen) { ?>
                                         <?php echo generar_image_responsive($imagen, 'custom-size', 'mb-2', ''); ?>

@@ -12,23 +12,23 @@ if ($imagen) {
 <section class="customSeccionServicios pt-lg-7 pt-5">
     <div class="container">
     <div class="row">
-        <div class="col-12 col-lg-7 pe-6">
+        <div class="col-12 col-lg-7 pe-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
             <?php if ($texto) { ?>
                 <h2 class="fs-4"><?php echo $texto; ?></h2>
             <?php } ?>
         </div>
-        <div class="col-12 col-lg-5">
-        <div class="d-flex justify-content-lg-end align-items-end h-100">
-            <?php if ($cta && !empty($cta['url'])) { ?>
-                <a href="<?php echo esc_url($cta['url']); ?>" 
-                   class="btn btn-blaco px-0 mt-lg-0 mt-2" 
-                   target="<?php echo esc_attr($cta['target'] ?? '_self'); ?>" 
-                   title="<?php echo esc_attr($cta['title'] ?? ''); ?>">
-                    <?php echo esc_html($cta['title'] ?? ''); ?>
-                    <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
-                </a>
-            <?php } ?>
-        </div>
+        <div class="col-12 col-lg-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+            <div class="d-flex justify-content-lg-end align-items-end h-100">
+                <?php if ($cta && !empty($cta['url'])) { ?>
+                    <a href="<?php echo esc_url($cta['url']); ?>" 
+                    class="btn btn-blaco px-0 mt-lg-0 mt-2" 
+                    target="<?php echo esc_attr($cta['target'] ?? '_self'); ?>" 
+                    title="<?php echo esc_attr($cta['title'] ?? ''); ?>">
+                        <?php echo esc_html($cta['title'] ?? ''); ?>
+                        <?php get_template_part('template-parts/componentes/icono-siguiente'); ?>
+                    </a>
+                <?php } ?>
+            </div>
         </div>
     </div>
 
@@ -36,7 +36,7 @@ if ($imagen) {
         <div class="swiper serviciosSwiper">
             <div class="swiper-wrapper">
                 <?php if ($items) { ?>
-                    <?php foreach ($items as $item) { 
+                    <?php foreach ($items as $key => $item) { 
                         $imagen_item = $item['imagen']['ID'] ?? '';
                         $titulo      = $item['titulo'] ?? '';
                         $texto_item  = $item['texto'] ?? '';
@@ -48,7 +48,7 @@ if ($imagen) {
                             $titulo = esc_html($titulo);
                         }
                     ?>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide wow fadeInUp" data-wow-duration="1s" data-wow-delay="<?php echo $key * 0.2; ?>s">
                             <div class="pe-lg-6">
                                 <div class="customSeccionServicios__img mb-1">
                                     <?php if ($imagen_item) { ?>

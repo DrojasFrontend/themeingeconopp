@@ -21,7 +21,7 @@ $items              = $grupo_texto_imagen['items'] ?? '';
             <section class="customSeccionTarjetaHorizontal">
                 <div class="container-fluid">
                     <div class="row d-flex <?php echo $estilo == 'estilo-1' ? 'flex-lg-row' : 'flex-lg-row-reverse'; ?> flex-column-reverse">
-                        <div class="col-12 col-lg px-0">
+                        <div class="col-12 col-lg px-0 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
                             <div class="bg-secondary d-flex flex-column justify-content-end pt-5 px-lg-4 px-3 pb-4 h-100">
                                 <?php if ($titulo) { ?>
                                     <h2 class="fs-1-medium fw-semibold mb-3"><?php echo $titulo; ?></h2>
@@ -31,7 +31,7 @@ $items              = $grupo_texto_imagen['items'] ?? '';
                                 <?php } ?>
                             </div>
                         </div>
-                        <div class="col-12 col-lg px-0">
+                        <div class="col-12 col-lg px-0 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
                             <?php if ($imagen) { ?>
                                 <?php echo generar_image_responsive($imagen, 'full', 'img-fluid d-block', ''); ?>
                             <?php } ?>
@@ -44,7 +44,7 @@ $items              = $grupo_texto_imagen['items'] ?? '';
                 <div class="container-fluid px-0">
                     <div class="bg-gray-400">
                         <div class="row gx-0 d-flex flex-lg-row flex-column-reverse">
-                            <div class="col-12 col-lg-8 px-0">
+                            <div class="col-12 col-lg-8 px-0 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                                 <div class="d-flex flex-column justify-content-center p-lg-5 px-lg-4 px-3 py-5 h-100">
                                     <?php if ($subtitulo) { ?>
                                         <p class="fs-4 text-secondary-100 letter-spacing-4"><?php echo $subtitulo; ?></p>
@@ -59,7 +59,7 @@ $items              = $grupo_texto_imagen['items'] ?? '';
                                     <?php } ?>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4 px-0">
+                            <div class="col-12 col-lg-4 px-0 wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">
                                 <?php if ($imagen) { ?>
                                     <?php echo generar_image_responsive($imagen, 'full', 'img-fluid d-block h-100 object-fit-cover', ''); ?>
                                 <?php } ?>

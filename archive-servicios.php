@@ -26,7 +26,7 @@ if (!$titulo_hero) {
 
 <main id="primary" class="site-main">
 
-    <section class="customSeccionBannerImagen position-relative">
+    <section class="customSeccionBannerImagen position-relative wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
         <?php if ($imagen_hero) { ?>
             <?php echo generar_image_responsive($imagen_hero, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
             <?php echo generar_image_responsive($imagen_hero_mobile, 'custom-size', 'd-lg-none img-fluid', ''); ?>
@@ -64,7 +64,7 @@ if (!$titulo_hero) {
             ));
             ?>
             <!-- Nav tabs -->
-            <ul class="d-flex justify-content-between gap-3 border-bottom border-secondary-100 pb-3 whitespace-nowrap overflow-x-auto" id="serviciosTabs" role="tablist">
+            <ul class="d-flex justify-content-between gap-3 border-bottom border-secondary-100 pb-3 whitespace-nowrap overflow-x-auto wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" id="serviciosTabs" role="tablist">
                 <?php foreach ($terms as $index => $term) : ?>
                     <li class="list-style-none" role="presentation">
                         <button class="position-relative border-0 p-0 parrafo text-secondary-100 <?php echo $index === 0 ? 'nav-link active' : ''; ?>" id="tab-<?php echo $term->slug; ?>" data-bs-toggle="tab" data-bs-target="#<?php echo $term->slug; ?>" type="button" role="tab" aria-controls="<?php echo $term->slug; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"><?php echo $term->name; ?></button>
@@ -74,7 +74,7 @@ if (!$titulo_hero) {
         </div>
         <div class="container">
             <!-- Tab panes -->
-            <div class="tab-content pt-5" id="serviciosTabsContent">
+            <div class="tab-content pt-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" id="serviciosTabsContent">
                 <!-- Tabs por término -->
                 <?php foreach ($terms as $index => $term) : ?>
                     <div class="tab-pane fade <?php echo $index === 0 ? 'show active' : ''; ?>" id="<?php echo $term->slug; ?>" role="tabpanel" aria-labelledby="tab-<?php echo $term->slug; ?>">

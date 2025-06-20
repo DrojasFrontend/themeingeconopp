@@ -5,7 +5,7 @@
 $grupo_header_top = get_field('grupo_header_top', 'options');
 $texto_header_top = $grupo_header_top['texto_header_top'] ?? '';
 ?>
-<header class="">
+<header class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s"">
     <div class="headerTop bg-gray-100 py-lg-4 py-3">
         <div class="container">
             <div class="row d-flex align-items-center">

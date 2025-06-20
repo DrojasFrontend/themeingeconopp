@@ -12,7 +12,7 @@ $items               = $grupo_empresas['items'] ?? '';
 ?>
 <section class="customSeccionMarcas <?php echo esc_attr($custom_class); ?>">
 	<div class="container">
-		<div class="text-center">
+		<div class="text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 			<?php if ($titulo) { ?>
 				<h2 class="fs-3 mb-lg-5 mb-4"><?php echo $titulo; ?></h2>
 			<?php } ?>
@@ -21,10 +21,10 @@ $items               = $grupo_empresas['items'] ?? '';
 			<div class="swiper marcaSwiper">
 				<div class="swiper-wrapper">
 					<?php if ($items) { ?>
-						<?php foreach ($items as $item) {
+						<?php foreach ($items as $key => $item) {
 							$imagen = $item['imagen']['ID'] ?? '';
 						?>
-							<div class="swiper-slide">
+							<div class="swiper-slide wow fadeInUp" data-wow-duration="1s" data-wow-delay="<?php echo $key * 0.2; ?>s">
 								<?php 
 									if ($imagen) {
 										echo generar_image_responsive($imagen, 'custom-size', 'img-fluid', '');

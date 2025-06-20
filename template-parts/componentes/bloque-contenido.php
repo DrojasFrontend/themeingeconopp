@@ -21,7 +21,7 @@ if ($imagen_mobile) {
 }
 
 ?>
-<section class="customHeroTextoImagen pt-lg-11 pt-11">
+<section class="customHeroTextoImagen pt-lg-11 pt-11 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
     <div class="container">
         <div class="row">
             <div class="<?php echo $clases_para_grilla; ?>">
@@ -50,7 +50,7 @@ if ($imagen_mobile) {
         </div>
     </div>
     <?php if ($imagen) { ?>
-        <div class="pt-lg-5 mt-lg-5 pt-4">
+        <div class="pt-lg-5 mt-lg-5 pt-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
             <?php echo generar_image_responsive($imagen, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
             <?php echo generar_image_responsive($imagen_mobile, 'custom-size', 'd-lg-none img-fluid', ''); ?>
         </div>
