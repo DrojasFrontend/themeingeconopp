@@ -8,6 +8,7 @@ $paginaProyectos     = get_page_by_path('proyectos');
 $paginaProyectosID   = $paginaProyectos ? $paginaProyectos->ID : null;
 $grupo_hero          = ($paginaProyectosID) ? get_field('grupo_hero', $paginaProyectosID) : null;
 $titulo_hero         = $grupo_hero['titulo'] ?? '';
+$video               = $grupo_hero['video'] ?? '';
 $imagen_hero         = $grupo_hero['imagen'] ?? '';
 $imagen_hero_mobile  = $grupo_hero['imagen_mobile'] ?? '';
 
@@ -25,10 +26,21 @@ if (!$titulo_hero) {
 ?>
 
 <main id="primary" class="site-main">
-    <section class="customSeccionBannerImagen position-relative wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
-        <?php if ($imagen_hero) { ?>
-            <?php echo generar_image_responsive($imagen_hero, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
-            <?php echo generar_image_responsive($imagen_hero_mobile, 'custom-size', 'd-lg-none img-fluid', ''); ?>
+    <section class="customSeccionBannerImagen position-relative <?php echo $video ? 'customSeccionBannerImagen__video' : ''; ?> wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+        <?php if ($video) { 
+            $video_url = is_array($video) ? $video['url'] : $video;
+            if ($video_url) { ?>
+                <video class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index: 0;" autoplay muted loop playsinline>
+                    <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                </video>
+            <?php } 
+        } else { ?>
+            <?php if ($imagen_hero) { ?>
+                <?php echo generar_image_responsive($imagen_hero, 'custom-size', 'd-none d-lg-block img-fluid', ''); ?>
+            <?php } ?>
+            <?php if ($imagen_hero_mobile) { ?>
+                <?php echo generar_image_responsive($imagen_hero_mobile, 'custom-size', 'd-block d-lg-none img-fluid', ''); ?>
+            <?php } ?>
         <?php } ?>
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-lg-center align-items-end py-5">
             <div class="container">

@@ -18,7 +18,7 @@ if ($imagen_mobile) {
     <?php if ($video) { 
         $video_url = is_array($video) ? $video['url'] : $video;
         if ($video_url) { ?>
-            <video class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index: 1;" autoplay muted loop playsinline>
+            <video class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index: 0;" autoplay muted loop playsinline>
                 <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
             </video>
         <?php } 
