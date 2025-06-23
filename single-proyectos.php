@@ -50,9 +50,14 @@ get_header('single');
                                             </span>
                                         <?php } ?>
                                         
-                                        <?php if ($estatus) { ?>
+                                        <?php if ($estatus !== 'Completado') { ?>
                                             <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
                                                 <?php get_template_part('template-parts/componentes/icono-en-proceso'); ?>
+                                                <?php echo $estatus; ?>
+                                            </span>
+                                        <?php } else { ?>
+                                            <span class="d-flex gap-2 align-items-center parrafo-small bg-secondary p-2 rounded-3 fw-regular">
+                                                <?php get_template_part('template-parts/componentes/icono-completado'); ?>
                                                 <?php echo $estatus; ?>
                                             </span>
                                         <?php } ?>
