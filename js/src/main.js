@@ -12,6 +12,7 @@ import {
 	initMarcaSwiper,
 	initTarjetaNumeroSwiper,
 	initNosotrosSwiper,
+	initGallerySwiper,
 } from "./swiper-init";
 import { initClickableCards } from "./card-click-init";
 
@@ -45,6 +46,9 @@ let Main = {
 			}
 			if (document.querySelector(".nosotrosSwiper")) {
 				initNosotrosSwiper();
+			}
+			if (document.querySelector(".gallerySwiper")) {
+				initGallerySwiper();
 			}
 			initClickableCards(".clickeable");
 			inicializarContadores();

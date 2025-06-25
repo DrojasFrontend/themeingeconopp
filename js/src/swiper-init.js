@@ -31,6 +31,25 @@ export const initBannerSwiper = () => {
 	});
 };
 
+export const initGallerySwiper = () => {
+	const swiper = new Swiper(".gallerySwiper", {
+		modules: [Pagination, Navigation, Autoplay],
+		slidesPerView: 1,
+		spaceBetween: 10,
+		centeredSlides: false,
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: false,
+		},
+		navigation: false,
+		pagination: {
+			el: ".swiper-pagination-gallery",
+			type: "bullets",
+			clickable: true,
+		},
+	});
+};
+
 export const initServiciosSwiper = () => {
 	const swiper = new Swiper(".serviciosSwiper", {
 		modules: [Pagination, Navigation, Autoplay],

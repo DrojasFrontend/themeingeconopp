@@ -7,6 +7,7 @@ $items              = $grupo_texto_imagen['items'] ?? '';
     <?php foreach ($items as $item) { ?>
         <?php
         $imagen    = $item['imagen']['ID'] ?? '';
+        $video     = $item['video'] ?? '';
         $texto     = $item['texto'] ?? '';
         $fondo     = $item['fondo'] ?? '';
         $subtitulo = $item['subtitulo'] ?? '';
@@ -15,6 +16,11 @@ $items              = $grupo_texto_imagen['items'] ?? '';
 
         if ($imagen) {
             $imagen = intval($imagen);
+        }
+        if ($video && is_array($video)) {
+            $video_url = $video['url'] ?? '';
+        } else {
+            $video_url = $video ?? '';
         }
         ?>
         <?php if ($estilo == 'estilo-1' || $estilo == 'estilo-2') { ?>
@@ -34,6 +40,13 @@ $items              = $grupo_texto_imagen['items'] ?? '';
                         <div class="col-12 col-lg px-0 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
                             <?php if ($imagen) { ?>
                                 <?php echo generar_image_responsive($imagen, 'full', 'img-fluid d-block', ''); ?>
+                            <?php } elseif ($video_url) { ?>
+                                <div class="position-relative w-100 h-100" style="min-height: 400px;">
+                                    <video class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index: 1;" autoplay muted loop playsinline>
+                                        <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -62,6 +75,13 @@ $items              = $grupo_texto_imagen['items'] ?? '';
                             <div class="col-12 col-lg-4 px-0 wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">
                                 <?php if ($imagen) { ?>
                                     <?php echo generar_image_responsive($imagen, 'full', 'img-fluid d-block h-100 object-fit-cover', ''); ?>
+                                <?php } elseif ($video_url) { ?>
+                                    <div class="position-relative w-100 h-100" style="min-height: 400px;">
+                                        <video class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index: 1;" autoplay muted loop playsinline>
+                                            <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                                            Tu navegador no soporta el elemento de video.
+                                        </video>
+                                    </div>
                                 <?php } ?>
                             </div>
                         </div>

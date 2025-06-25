@@ -229,7 +229,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "Constructora Con Concreto",
+                    "default_value": "Contratista principal",
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
@@ -256,5 +256,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1750450755
+    "modified": 1750810511
 }
