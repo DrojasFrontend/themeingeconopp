@@ -132,7 +132,7 @@ get_header('single');
                                         <?php } ?>
                                         <?php if ($ejecutado_por) { ?>
                                             <div>
-                                                <p class="fs-5 fw-semibold text-white-200">Ejecutado por</p>
+                                                <p class="fs-5 fw-semibold text-white-200">Contratista principal</p>
                                                 <p class="fs-5 fw-normal text-white-200"><?php echo $ejecutado_por; ?></p>
                                             </div>
                                         <?php } ?>
