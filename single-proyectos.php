@@ -91,6 +91,9 @@ get_header('single');
                                         <?php } ?>
                                     </div>
                                 </div>
+                                <div class="my-4">
+                                    <div class="customSwiperPagination swiper-pagination-gallery d-flex justify-content-center"></div>
+                                </div>
                             <?php } ?>
                         </div>
                     </header>
