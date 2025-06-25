@@ -83,7 +83,7 @@ if (!$titulo_hero) {
             <ul class="row gx-0 gap-3 border-bottom border-secondary-100 pb-3" id="serviciosTabs" role="tablist">
                 <?php foreach ($terms as $index => $term) : ?>
                     <li class="col d-flex justify-content-center list-style-none" role="presentation">
-                        <button class="position-relative w-100 border-0 p-0 parrafo text-secondary-100 <?php echo $index === 0 ? 'nav-link active' : ''; ?>" id="tab-<?php echo $term->slug; ?>" data-bs-toggle="tab" data-bs-target="#<?php echo $term->slug; ?>" type="button" role="tab" aria-controls="<?php echo $term->slug; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"><?php echo $term->name; ?></button>
+                        <button class="position-relative w-100 border-0 p-0 parrafo text-secondary-100 bg-transparent <?php echo $index === 0 ? 'nav-link active' : ''; ?>" id="tab-<?php echo $term->slug; ?>" data-bs-toggle="tab" data-bs-target="#<?php echo $term->slug; ?>" type="button" role="tab" aria-controls="<?php echo $term->slug; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"><?php echo $term->name; ?></button>
                     </li>
                 <?php endforeach; ?>
             </ul>
