@@ -40,7 +40,7 @@
                     "label": "Imagen",
                     "name": "imagen",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "gallery",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -51,6 +51,8 @@
                     },
                     "return_format": "array",
                     "library": "all",
+                    "min": "",
+                    "max": "",
                     "min_width": "",
                     "min_height": "",
                     "min_size": "",
@@ -58,6 +60,7 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
+                    "insert": "append",
                     "preview_size": "medium"
                 }
             ]
@@ -256,5 +259,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1750810511
+    "modified": 1750812517
 }

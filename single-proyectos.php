@@ -75,12 +75,22 @@ get_header('single');
                             <?php
                                 $grupo_imagen   = get_field('grupo_imagen', $post_id);
                                 $imagen_grande  = $grupo_imagen['imagen'] ?? '';
-                                if ($imagen_grande) {
-                                    $imagen_grande = $imagen_grande['ID'];
-                                }
+                                // if ($imagen_grande) {
+                                //     $imagen_grande = $imagen_grande['ID'];
+                                // }
                             ?>
-                            <?php if ($imagen_grande) { ?>
-                                <?php echo generar_image_responsive($imagen_grande, 'custom-size', 'img-fluid rounded-4 overflow-hidden', ''); ?>
+                           <?php if ($imagen_grande) { ?>
+                                <div class="swiper gallerySwiper">
+                                    <div class="swiper-wrapper">
+                                        <?php foreach ($imagen_grande as $imagen) { 
+                                            $imagen_url = $imagen['ID'];
+                                        ?>
+                                        <div class="swiper-slide">
+                                            <?php echo generar_image_responsive($imagen_url, 'custom-size', 'img-fluid rounded-4 overflow-hidden', ''); ?>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
                             <?php } ?>
                         </div>
                     </header>
