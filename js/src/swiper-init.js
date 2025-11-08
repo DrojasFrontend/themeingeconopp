@@ -189,7 +189,7 @@ export const initMarqueeSwiper = () => {
 	const swiper = new Swiper(".marqueeSwiper", {
 		modules: [Autoplay],
 		slidesPerView: 'auto',
-		spaceBetween: 0,
+		spaceBetween: 10,
 		loop: true,
 		autoplay: {
 			delay: 0,
@@ -249,6 +249,27 @@ export const initNosotrosSwiper = () => {
 	});
 };
 
+export const initExposicionGaleriaSwiper = () => {
+	const swiper = new Swiper(".exposicionGaleriaSwiper", {
+		modules: [Autoplay],
+		slidesPerView: 1.1,
+		spaceBetween: 0,
+		loop: true,
+		speed: 8000,
+		centeredSlides: false,
+		autoplay: {
+			delay: 0,
+			disableOnInteraction: false,
+		},
+		navigation: false,
+		breakpoints: {
+			1024: {
+				slidesPerView: 2,
+			}
+		},
+	});
+};
+
 // Inicialización de Swipers
 document.addEventListener('DOMContentLoaded', function () {
 	initBannerSwiper();
@@ -259,4 +280,5 @@ document.addEventListener('DOMContentLoaded', function () {
 	initMarcaSwiper();
 	initMarqueeSwiper();
 	initNosotrosSwiper();
+	initExposicionGaleriaSwiper();
 });

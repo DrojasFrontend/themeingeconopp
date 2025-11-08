@@ -23,7 +23,7 @@
   <?php wp_head(); ?>
 
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(is_page('exposicion') ? 'pageExposicion' : ''); ?>>
 
   <!-- Header -->
   <?php get_template_part('template-parts/layout/header/content', 'header') ?>

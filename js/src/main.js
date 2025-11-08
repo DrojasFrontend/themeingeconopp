@@ -13,6 +13,7 @@ import {
 	initTarjetaNumeroSwiper,
 	initNosotrosSwiper,
 	initGallerySwiper,
+	initExposicionGaleriaSwiper,
 } from "./swiper-init";
 import { initClickableCards } from "./card-click-init";
 
@@ -49,6 +50,9 @@ let Main = {
 			}
 			if (document.querySelector(".gallerySwiper")) {
 				initGallerySwiper();
+			}
+			if (document.querySelector(".exposicionGaleriaSwiper")) {
+				initExposicionGaleriaSwiper();
 			}
 			initClickableCards(".clickeable");
 			inicializarContadores();
