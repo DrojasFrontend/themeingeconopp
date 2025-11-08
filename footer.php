@@ -2,7 +2,11 @@
 ?>
 
   <footer class="">
-    <?php get_template_part('template-parts/layout/footer/content-footer'); ?>
+    <?php if (is_page('exposicion')) : ?>
+      <?php get_template_part('template-parts/layout/footer/content-footer-exposicion'); ?>
+    <?php else : ?>
+      <?php get_template_part('template-parts/layout/footer/content-footer'); ?>
+    <?php endif; ?>
   </footer>
 
   <?php wp_footer(); ?>

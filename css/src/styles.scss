@@ -792,3 +792,10 @@ label:has(input[type="checkbox"]:checked) span:before {
 .wpcf7 form.payment-required .wpcf7-response-output {
 	border-color: #f3bd0e;
 }
+
+@media only screen and (min-width: 992px) {
+	.customSeccionTarjetaNumero .bg-gray-400 {
+		border-radius: 16px;
+	}
+}
+

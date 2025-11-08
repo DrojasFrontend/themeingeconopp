@@ -12,6 +12,7 @@
     --bs-gray-500: #757575;
     --bs-white-100: #FFFEF9;
     --bs-white-200: #F4F3ED;
+    --bs-btn-disabled-bg: #eee;
     
     --bs-primary-rgb: 0, 0, 0;
     --bs-gray-100-rgb: 63, 61, 57;
@@ -147,4 +148,9 @@
 
 .border-gray-200 {
     border-color: var(--bs-gray-200) !important;
+}
+
+.btn:disabled {
+    border-color: var(--bs-gray) !important;
+	background-color: var(--bs-gray) !important;
 }

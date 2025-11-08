@@ -66,6 +66,10 @@ $cta_imagen_texto        = $grupo_imagen_texto['cta'] ?? '';
 /* Texto animado 2 */
 $grupo_texto_animado_2    = get_field('grupo_texto_animado_2');
 
+/* Video */
+$grupo_video       = get_field('grupo_video');
+$video             = $grupo_video['video'] ?? '';
+
 ?>
 <main>
   <!-- Hero -->
@@ -121,7 +125,8 @@ $grupo_texto_animado_2    = get_field('grupo_texto_animado_2');
    <div class="my-5"></div>
   <section class="position-relative pt-5">
     <div class="position-absolute top-0 start-0 w-100 h-100">
-      <img class="w-100 h-100" src="<?php echo THEME_IMG; ?>/ellipse.svg" alt="Easy System - Ingeniería y Construcción">
+      <img class="w-100 h-100 d-none d-lg-block" src="<?php echo THEME_IMG; ?>/ellipse.svg" alt="Easy System - Ingeniería y Construcción">
+      <img class="w-100 h-100 object-fit-cover d-block d-lg-none" src="<?php echo THEME_IMG; ?>/ellipse.svg" alt="Easy System - Ingeniería y Construcción">
     </div>
     <div class="container position-relative">
       <div class="row">
@@ -185,13 +190,29 @@ $grupo_texto_animado_2    = get_field('grupo_texto_animado_2');
     get_template_part('template-parts/componentes/bloque-texto-animado'); 
   ?>
 
+  <section class="">
+    <div class="container-fluid gx-0">
+      <div class="row m-0">
+        <div class="col-12 p-0">
+          <?php if ($video) { ?>
+            <video class="w-100 h-auto" autoplay loop muted playsinline>
+              <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
+              Tu navegador no soporta la reproducción de videos.
+            </video>
+          <?php } ?>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Titulo imagen items iconos -->
   <?php get_template_part('template-parts/componentes/bloque-titulo-imagen-items-iconos'); ?>
 
   <!-- Como funciona -->
   <section class="customSeccionTarjetaNumero pt-lg-7 pt-5">
     <div class="px-lg-3">
-      <div class="bg-gray-400 rounded-4 py-4">
+      <div class="bg-gray-400 py-4">
         <div class="container">
           <div class="row d-flex flex-lg-row flex-column-reverse">
             <div class="col-12 col-lg-6">
@@ -363,8 +384,5 @@ $grupo_texto_animado_2    = get_field('grupo_texto_animado_2');
     set_query_var('acf_group_name', 'grupo_texto_animado_2'); // Segundo grupo ACF
     get_template_part('template-parts/componentes/bloque-texto-animado'); 
   ?>
-
-
-
 </main>
 <?php get_footer(); ?>

@@ -16,6 +16,7 @@ import {
 	initExposicionGaleriaSwiper,
 } from "./swiper-init";
 import { initClickableCards } from "./card-click-init";
+import { initCF7Validation } from "./cf7-validation";
 
 
 let Main = {
@@ -56,6 +57,7 @@ let Main = {
 			}
 			initClickableCards(".clickeable");
 			inicializarContadores();
+			initCF7Validation();
 		});
 	},
 };
