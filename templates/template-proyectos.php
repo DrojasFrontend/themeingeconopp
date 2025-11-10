@@ -193,9 +193,9 @@ $video             = $grupo_video['video'] ?? '';
   <section class="">
     <div class="container-fluid gx-0">
       <div class="row m-0">
-        <div class="col-12 p-0">
+        <div class="col-12 p-0" style="height: 500px">
           <?php if ($video) { ?>
-            <video class="w-100 h-auto" autoplay loop muted playsinline>
+            <video class="w-100" height="100%" style="object-fit: cover;" autoplay loop muted playsinline>
               <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
               Tu navegador no soporta la reproducción de videos.
             </video>

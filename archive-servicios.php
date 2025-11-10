@@ -260,6 +260,48 @@ if (!$titulo_hero) {
         get_template_part('template-parts/componentes/bloque-texto-animado'); 
     ?>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Detectar si hay un hash en la URL
+        if (window.location.hash) {
+            const hash = window.location.hash.substring(1); // Quitar el #
+            const tabButton = document.getElementById('tab-' + hash);
+            const tabContent = document.getElementById(hash);
+            
+            if (tabButton && tabContent) {
+                // Desactivar todos los tabs
+                document.querySelectorAll('#serviciosTabs button').forEach(function(btn) {
+                    btn.classList.remove('active', 'nav-link');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                
+                document.querySelectorAll('.tab-pane').forEach(function(pane) {
+                    pane.classList.remove('show', 'active');
+                });
+                
+                // Activar el tab correspondiente
+                tabButton.classList.add('active', 'nav-link');
+                tabButton.setAttribute('aria-selected', 'true');
+                tabContent.classList.add('show', 'active');
+                
+                // Hacer scroll al tab (opcional)
+                setTimeout(function() {
+                    const tabsElement = document.getElementById('serviciosTabs');
+                    if (tabsElement) {
+                        const offset = 100; // Offset del header
+                        const elementPosition = tabsElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+        }
+    });
+    </script>
     
 </main>
 
